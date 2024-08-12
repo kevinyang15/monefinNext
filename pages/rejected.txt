@@ -1,0 +1,137 @@
+import React from 'react';
+import styled, { useTheme } from 'styled-components';
+
+import Footer from '../containers/Footer';
+import Card from '@mui/material/Card';
+import RejectedImg from '../assets/rejected.svg';
+import RejectedImg2 from '../assets/card.svg'
+import Spacer from '../components/Spacer';
+import Button from '../components/Button';
+
+const Wrapper = styled.div`
+  height: auto;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 0 36px;
+  padding-bottom: 100px;
+`;
+
+const WaitImage = styled.img`
+  width: 100%;
+  height: auto;
+  max-width: 150px;
+  margin-top:20px;
+`;
+
+const MainText = styled.div`
+  margin: 30px 0 20px 0;
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 600;
+  color: ${({ theme }) => theme.colors.basic2000};
+`;
+
+const Subtext = styled.h4`
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 400;
+  color: ${({ theme }) => theme.colors.basic2000};
+  margin: 0 0 40px 0;
+  text-align: center;
+  width: 80%;
+
+  @media (orientation: portrait) and (max-width: 767px) {
+    width: 100%;
+  }
+`;
+
+const ExtraText = styled.h5`
+  font-size: 14px;
+  line-height: 24px;
+  font-weight: 400;
+  color: ${({ theme }) => theme.colors.basic2000};
+  margin: 30px 0 0 0;
+  text-align: center;
+`;
+
+const ButtonWrapper = styled.div`
+  width: 70%;
+  margin-top: 20px;
+
+  @media (orientation: portrait) and (max-width: 767px) {
+    width: 100%;
+  }
+`;
+
+const ScreenWrapper = styled.div`
+  background-color: ${(props) => props.theme.colors.basic100};
+  width: 100%;
+  border-radius: 1px;
+
+  @media (min-width: 767px) {
+    width: 70%;
+    border-radius: 15px;
+  }
+
+  @media (max-width: 320px) {
+    width: 100%;
+    border-radius: 15px;
+  }
+  @media (min-width: 1200px) {
+    width: 40%;
+    border-radius: 15px;
+  }
+
+`;
+
+const Rejected = () => {
+  const theme = useTheme();
+
+  const goToBlog = () => {
+    window.open('https://monefin.net');
+  }
+  const goToBlogCard = () => {
+    window.open('https://monefin.net/tarjeta-santander');
+  }
+
+  return (
+    <ScreenWrapper>
+    <Wrapper>
+      <WaitImage src={RejectedImg} alt="Rechazado" />
+      <MainText>{`Ofertas aprobadas 🎉`}</MainText>
+      <Card style={{boxShadow:"none"}}>
+        <div style={{display:'flex',justifyContent:'center'}}>
+      <WaitImage src={RejectedImg2} alt="Rechazado" />  
+      </div>
+      <h1 style={{display:'flex',justifyContent:'center',fontSize:'22px'}}>Pedí tu tarjeta de Crédito</h1>
+        <Button
+          backgroundColor={theme.colors.background}
+          textColor="#232323"
+          text="¡Pedir Tarjeta! 💳"
+          onClick={goToBlogCard}
+        />
+      </Card>
+      <Subtext>Las siguientes ofertas fueron aprobadas en base a tu perfil crediticio</Subtext>
+      <ExtraText>
+      Pedí tu tarjeta de Crédito o Préstamo 100% Online con tu DNI.
+      </ExtraText>
+      <ButtonWrapper>
+        <Button
+          backgroundColor={theme.colors.background}
+          // textColor={theme.colors.basic100}
+          textColor="#232323"
+          text="¡Descubrí otras opciones!"
+          onClick={goToBlog}
+        />
+      </ButtonWrapper>
+      <Spacer size={80} />
+      <Footer />
+    </Wrapper>
+    </ScreenWrapper>
+  )
+};
+
+export default Rejected;

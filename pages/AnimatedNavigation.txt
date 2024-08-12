@@ -1,0 +1,91 @@
+import React from 'react';
+import { Route, Routes, useLocation } from 'react-router-dom';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
+import { Helmet } from "react-helmet";
+
+
+
+import FAQ from './FAQ';
+import Home from './Home';
+import Results from './Results';
+import Terms from './Terms';
+import Privacy from './Privacy';
+import Us from './Us';
+import Wait from './Wait';
+import Contact from './Contact';
+import BuscarOfertas from './BuscarOfertas';
+
+const AnimatedNavigation = () => {
+  const location = useLocation();
+
+  return (
+    <TransitionGroup component={null}>
+       <Helmet>
+       <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2292291997787849" crossOrigin="anonymous"></script>
+        {/* Google tag (gtag.js) */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-D37EQGQRLL"></script>
+        <script>
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-D37EQGQRLL');
+          `}
+        </script>
+        {/* <!-- Google tag (gtag.js) GOOGLE ADS MONEFIN--> */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16665446279"></script>
+        <script>
+          {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          
+          gtag('config', 'AW-16665446279');
+          `}
+        </script>
+        <meta name="google-adsense-account" content="ca-pub-2292291997787849"></meta>
+        <meta name="description" content=" ¡La primera Fintech para todos! Préstamos simples y transparentes. ¡Sin complicaciones! Solicita tu préstamo personal hoy mismo." />
+        <link rel="canonical" href="#" />
+        <meta
+          name="keywords"
+          content="Préstamos, Créditos, Ahorro, Planes de Ahorro, Servicios Financieros, Inversiones, Fintech, Créditos Online, Préstamos Online"
+        />
+        <meta name="robots" content="index, follow" />
+        <meta
+          property="og:title"
+          content="Monefin - La primera Fintech para todos"
+        />
+        <meta
+          property="og:description"
+          content="¡La primera Fintech para todos! Préstamos simples y transparentes. ¡Sin complicaciones! Solicita tu préstamo personal hoy mismo."
+        />
+        <meta property="og:url" content="#" />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:image"
+          content="http://localhost:3000/static/media/logo.e2aa0a6dd4e0039ed7560a84e84c5973.svg"
+        />
+      </Helmet>
+      <CSSTransition
+        key={location.key}
+        classNames="fade"
+        timeout={500}
+      >
+        <Routes location={location}>
+          <Route path="/nosotros" element={<Us />} />
+          <Route path="/buscar-ofertas" element={<BuscarOfertas />} />
+          <Route path="*" element={<BuscarOfertas />} />
+          <Route path="/contacto" element={<Contact />} />
+          <Route path="/faq" element={<FAQ />} />
+          <Route path="/terminos" element={<Terms />} />
+          <Route path="/privacidad" element={<Privacy />} />
+          <Route path="/espera" element={<Wait />} />
+          <Route path="/ofertas" element={<Results />} />
+          <Route path="/" element={<Home />} />
+        </Routes>
+      </CSSTransition>
+    </TransitionGroup>
+  );
+};
+
+export default AnimatedNavigation;
