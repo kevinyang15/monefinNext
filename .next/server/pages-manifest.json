@@ -1,8 +1,8 @@
 {
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
-  "/buscar-ofertas": "pages/buscar-ofertas.html",
   "/_document": "pages/_document.js",
+  "/buscar-ofertas": "pages/buscar-ofertas.html",
   "/contacto": "pages/contacto.html",
   "/espera": "pages/espera.html",
   "/faq": "pages/faq.html",
