@@ -5,12 +5,12 @@
   "/buscar-ofertas": "pages/buscar-ofertas.html",
   "/contacto": "pages/contacto.html",
   "/espera": "pages/espera.html",
-  "/faq": "pages/faq.html",
   "/": "pages/index.html",
-  "/nosotros": "pages/nosotros.html",
+  "/faq": "pages/faq.html",
   "/ofertas": "pages/ofertas.html",
-  "/privacidad": "pages/privacidad.html",
+  "/nosotros": "pages/nosotros.html",
   "/reportWebVitals": "pages/reportWebVitals.html",
+  "/privacidad": "pages/privacidad.html",
   "/terminos": "pages/terminos.html",
   "/404": "pages/404.html"
 }

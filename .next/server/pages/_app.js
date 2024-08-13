@@ -331,6 +331,14 @@ const App = ({ Component , pageProps  })=>{
                     /*#__PURE__*/ jsx_runtime_.jsx("meta", {
                         name: "google-adsense-account",
                         content: "ca-pub-2292291997787849"
+                    }),
+                    /*#__PURE__*/ jsx_runtime_.jsx("meta", {
+                        name: "viewport",
+                        content: "width=device-width, initial-scale=1"
+                    }),
+                    /*#__PURE__*/ jsx_runtime_.jsx("link", {
+                        rel: "stylesheet",
+                        href: "https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
                     })
                 ]
             }),
