@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import Footer from '../containers/Footer';
 import ContactComponent from '../components/ContactComponent/ContactComponent';
+import { Helmet } from 'react-helmet';
+
 
 const Wrapper = styled.div`
   height: auto;
@@ -124,6 +126,30 @@ const Contacto = () => {
 
   return (
     <ScreenWrapper>
+      <Helmet>
+        <title>Contacto | Monefin</title>
+        <meta name="description" content="Préstamos simples y transparentes ¡Sin complicaciones! Solicita tu préstamo personal o tarjeta de crédito hoy mismo." />
+        <link rel="canonical" href="https://monefin.net/contacto" />
+        <meta
+          name="keywords"
+          content="Préstamos, Créditos, Ahorro, Planes de Ahorro, Servicios Financieros, Inversiones, Fintech, Créditos Online, Préstamos Online"
+        />
+        <meta name="robots" content="index, follow" />
+        <meta
+          property="og:title"
+          content="Buscá ofertas de préstamos"
+        />
+        <meta
+          property="og:description"
+          content="¡La primera Fintech para todos! Préstamos simples y transparentes. ¡Sin complicaciones! Solicita tu préstamo personal o tarjeta de crédito hoy mismo."
+        />
+        <meta property="og:url" content="https://monefin.net/contacto" />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:image"
+          content=""
+        />
+      </Helmet>
       <ContactComponent />
       <Footer />
     </ScreenWrapper>

@@ -5,6 +5,9 @@ import UserForm from '../containers/UserForm';
 import Footer from '../containers/Footer';
 import CoinMonefin from '../public/assets/monefinCoin.json';
 import { Helmet } from 'react-helmet';
+import LogoImg from '../public/assets/logo.svg';
+import { useRouter } from "next/router";
+
 
 const Wrapper = styled.div`
   height: auto;
@@ -127,12 +130,19 @@ const BuscarOfertas = () => {
   useEffect(() => {
     window.scrollTo({ top: 0 });
   }, []);
-
+  
+  const router = useRouter()
+  const webUrl = typeof window !== 'undefined' 
+  ? `${window.location.origin}${router.route}` : '';
+  const logoUrl = typeof window !== 'undefined' 
+  ? `${window.location.origin}${LogoImg.src}` 
+  : '';
   return (
     <ScreenWrapper>
         <Helmet>
-        <meta name="description" content="Préstamos simples y transparentes ¡Sin complicaciones! Solicita tu préstamo personal hoy mismo." />
-        <link rel="canonical" href="https://monefin.net/buscar-ofertas" />
+        <title>Buscá Préstamos Online</title>
+        <meta name="description" content="Préstamos simples y transparentes ¡Sin complicaciones! Solicita tu préstamo personal o tarjeta de crédito hoy mismo." />
+        <link rel="canonical" href={webUrl} />
         <meta
           name="keywords"
           content="Préstamos, Créditos, Ahorro, Planes de Ahorro, Servicios Financieros, Inversiones, Fintech, Créditos Online, Préstamos Online"
@@ -144,13 +154,13 @@ const BuscarOfertas = () => {
         />
         <meta
           property="og:description"
-          content="¡La primera Fintech para todos! Préstamos simples y transparentes. ¡Sin complicaciones! Solicita tu préstamo personal hoy mismo."
+          content="¡La primera Fintech para todos! Préstamos simples y transparentes. ¡Sin complicaciones! Solicita tu préstamo personal o tarjeta de crédito hoy mismo."
         />
-        <meta property="og:url" content="https://monefin.net/buscar-ofertas" />
+        <meta property="og:url" content={webUrl} />
         <meta property="og:type" content="website" />
         <meta
           property="og:image"
-          content="https://monefin.net/static/media/logo.e2aa0a6dd4e0039ed7560a84e84c5973.svg"
+          content={logoUrl}
         />
       </Helmet>
     <Wrapper>

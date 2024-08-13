@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Helmet } from 'react-helmet';
 
 import Footer from '../containers/Footer';
 
@@ -55,6 +56,30 @@ const ScreenWrapper = styled.div`
 
 const Terms = () => (
   <ScreenWrapper>
+          <Helmet>
+        <title>Terminos y Condiciones | Monefin</title>
+        <meta name="description" content="Préstamos simples y transparentes ¡Sin complicaciones! Solicita tu préstamo personal o tarjeta de crédito hoy mismo." />
+        <link rel="canonical" href="https://monefin.net/terminos" />
+        <meta
+          name="keywords"
+          content="Préstamos, Créditos, Ahorro, Planes de Ahorro, Servicios Financieros, Inversiones, Fintech, Créditos Online, Préstamos Online"
+        />
+        <meta name="robots" content="index, follow" />
+        <meta
+          property="og:title"
+          content="Buscá ofertas de préstamos"
+        />
+        <meta
+          property="og:description"
+          content="¡La primera Fintech para todos! Préstamos simples y transparentes. ¡Sin complicaciones! Solicita tu préstamo personal o tarjeta de crédito hoy mismo."
+        />
+        <meta property="og:url" content="https://monefin.net/terminos" />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:image"
+          content=""
+        />
+      </Helmet>
   <Wrapper>
     <TitleText>Términos y condiciones</TitleText>
     <h3>Términos y Condiciones</h3>

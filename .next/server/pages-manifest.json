@@ -1,7 +1,16 @@
 {
   "/_app": "pages/_app.js",
+  "/contacto": "pages/contacto.html",
+  "/buscar-ofertas": "pages/buscar-ofertas.html",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/": "pages/index.js",
-  "/buscar-ofertas": "pages/buscar-ofertas.js"
+  "/espera": "pages/espera.html",
+  "/faq": "pages/faq.html",
+  "/": "pages/index.html",
+  "/nosotros": "pages/nosotros.html",
+  "/ofertas": "pages/ofertas.html",
+  "/privacidad": "pages/privacidad.html",
+  "/reportWebVitals": "pages/reportWebVitals.html",
+  "/terminos": "pages/terminos.html",
+  "/404": "pages/404.html"
 }

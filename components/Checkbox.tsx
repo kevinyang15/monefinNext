@@ -54,7 +54,7 @@ const Checkbox = ({
 }: CheckboxProps) => (
   <Wrapper onClick={handleChange}>
     <Box checked={checked}>
-      {checked && <Check src={CheckImg} alt="Aceptado" />}
+      {checked && <Check src={CheckImg.src} alt="Aceptado" />}
     </Box>
     <CheckText>
       {text}

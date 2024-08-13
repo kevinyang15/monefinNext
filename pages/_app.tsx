@@ -4,7 +4,9 @@ import styled, { createGlobalStyle, ThemeProvider } from "styled-components";
 import useWindowProps from "../hooks/useWindowProps";
 import TopBar from "../components/TopBar";
 import { AppProps } from "next/app";
-import '../styles/globals.css'; // Importa los estilos de Tailwind CSS
+import Fondo from "../public/assets/fondo-monefin.svg";
+import "../styles/globals.css"; // Importa los estilos de Tailwind CSS
+import { Helmet } from "react-helmet";
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -14,7 +16,8 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     background-color: #bea9ed;
     overflow-x: hidden;
-
+    background: url(${Fondo.src}) no-repeat center center fixed; /* Aquí se establece la imagen de fondo */
+    background-size: cover; /* Ajusta la imagen para que cubra todo el fondo */
   }
 `;
 
@@ -32,19 +35,27 @@ const ScreenWrapper = styled.div`
   width: 100%;
   border-radius: 1px;
 
-
   @media (min-width: 767px) {
     width: 70%;
     border-radius: 15px;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
   }
 
   @media (max-width: 320px) {
     width: 100%;
     border-radius: 15px;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
   }
   @media (min-width: 1200px) {
-    width: 40%;
+    width: 100%;
     border-radius: 15px;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
   }
 `;
 
@@ -53,14 +64,14 @@ const App = ({ Component, pageProps }: AppProps): JSX.Element => {
   const [isDarkMode, setIsDarkMode] = useState(false);
 
   useEffect(() => {
-    const matchDark = window.matchMedia('(prefers-color-scheme: dark)');
+    const matchDark = window.matchMedia("(prefers-color-scheme: dark)");
     setIsDarkMode(matchDark.matches);
     const listener = (e: MediaQueryListEvent) => {
       setIsDarkMode(e.matches);
     };
-    matchDark.addEventListener('change', listener);
+    matchDark.addEventListener("change", listener);
     return () => {
-      matchDark.removeEventListener('change', listener);
+      matchDark.removeEventListener("change", listener);
     };
   }, []);
 
@@ -80,6 +91,44 @@ const App = ({ Component, pageProps }: AppProps): JSX.Element => {
 
   return (
     <ThemeProvider theme={theme}>
+      <Helmet>
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2292291997787849"
+          crossOrigin="anonymous"
+        ></script>
+        {/* Google tag (gtag.js) */}
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-D37EQGQRLL"
+        ></script>
+        <script>
+          {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'G-D37EQGQRLL');
+              `}
+        </script>
+        {/* <!-- Google tag (gtag.js) GOOGLE ADS MONEFIN--> */}
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=AW-16665446279"
+        ></script>
+        <script>
+          {`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              
+              gtag('config', 'AW-16665446279');
+              `}
+        </script>
+        <meta
+          name="google-adsense-account"
+          content="ca-pub-2292291997787849"
+        ></meta>
+      </Helmet>
       <GlobalStyle />
       <Wrapper height={windowProps.height}>
         <TopBar />

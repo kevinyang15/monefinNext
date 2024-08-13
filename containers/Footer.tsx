@@ -92,7 +92,7 @@ const Footer = () => {
       <Link href="/privacidad" passHref>
         <WrappedLink style={{ textDecoration: 'none' }}><InnerLink>Políticas de Privacidad</InnerLink></WrappedLink>
       </Link>
-      <Image onClick={() => router.push('/')} src={LogoContrast} alt="monefin" width={200}/>
+      <img onClick={() => router.push('/')} src={LogoContrast.src} alt="monefin" width={150} className='mt-10'/>
     </Wrapper>
   );
 };

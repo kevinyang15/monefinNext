@@ -4,6 +4,10 @@ import  Link  from 'next/link';
 import Footer from '../containers/Footer';
 import hero from '../public/assets/hero.svg'
 
+import { useRouter } from 'next/router';
+import { Helmet } from 'react-helmet';
+import LogoImg from '../public/assets/logo.svg';
+
 const Wrapper = styled.div`
   height: auto;
   flex: 1;
@@ -99,6 +103,13 @@ const Home = () => {
     window.scrollTo({ top: 0 });
   }, []);
 
+  const router = useRouter();
+  const webUrl = typeof window !== 'undefined' 
+  ? `${window.location.origin}${router.route}` : '';
+  const logoUrl = typeof window !== 'undefined' 
+  ? `${window.location.origin}${LogoImg.src}` 
+  : '';
+
 const Text = styled.p`
   margin: 0;
   font-size: 16px;
@@ -131,6 +142,30 @@ const InnerLink = styled.span`
 
   return (
     <ScreenWrapper>
+      <Helmet>
+        <title>Nosotros | Primera Fintech para todos</title>
+        <meta name="description" content="Préstamos simples y transparentes ¡Sin complicaciones! Solicita tu préstamo personal o tarjeta de crédito hoy mismo." />
+        <link rel="canonical" href={webUrl} />
+        <meta
+          name="keywords"
+          content="Préstamos, Créditos, Ahorro, Planes de Ahorro, Servicios Financieros, Inversiones, Fintech, Créditos Online, Préstamos Online"
+        />
+        <meta name="robots" content="index, follow" />
+        <meta
+          property="og:title"
+          content="Buscá ofertas de préstamos"
+        />
+        <meta
+          property="og:description"
+          content="¡La primera Fintech para todos! Préstamos simples y transparentes. ¡Sin complicaciones! Solicita tu préstamo personal o tarjeta de crédito hoy mismo."
+        />
+        <meta property="og:url" content={webUrl} />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:image"
+          content={logoUrl}
+        />
+      </Helmet>
     <Wrapper>
       <TopLineWrapper>
         <TopLineTextWrapper>

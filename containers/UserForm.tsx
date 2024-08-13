@@ -66,7 +66,6 @@ const UserForm = () => {
   const router = useRouter();
 
   const setNombrecompleto = useFormStore((state) => state.setNombrecompleto);
-  console.log('icono: ', Email.src)
   const [acceptedTerms, setAcceptedTerms] = useState(false);
   const [dni, setDni] = useState('');
   const [email, setEmail] = useState('');

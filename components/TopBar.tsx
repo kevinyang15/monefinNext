@@ -53,7 +53,6 @@ const CustomLink = styled.a`
   @media (orientation: portrait) and (max-width: 767px) {
     display: none;
   }
-    
 `;
 
 
@@ -67,11 +66,11 @@ const TopBar = () => {
   return (
     <Wrapper style={{ display: 'flex', justifyContent: 'Center', width: '100%'}}>
       
-      <div>
+      <div className='md:pr-10 pr-0'>
          {isDarkMode ? (
-           <Image  className='logoHome' src={LogoImg} alt="monefin" width={200} height={50} onClick={onClickLogo}/>
+           <img  className='logoHome' src={LogoImg.src} alt="monefin" width={200} height={60} onClick={onClickLogo}/>
            ) : (
-             <Image  className='logoHome' src={LogoImg} alt="monefin" width={200}  height={50} onClick={onClickLogo}/>
+             <img  className='logoHome' src={LogoImg.src} alt="monefin" width={200}  height={60} onClick={onClickLogo}/>
             )}      
       </div>
       <div className='menuMobile'>

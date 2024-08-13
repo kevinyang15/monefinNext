@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Helmet } from 'react-helmet';
 
 import Footer from '../containers/Footer';
 
@@ -55,6 +56,30 @@ const ScreenWrapper = styled.div`
 
 const Privacy = () => (
   <ScreenWrapper>
+      <Helmet>
+        <title>Politicas de Privacidad | Monefin</title>
+        <meta name="description" content="Préstamos simples y transparentes ¡Sin complicaciones! Solicita tu préstamo personal o tarjeta de crédito hoy mismo." />
+        <link rel="canonical" href="https://monefin.net/privacidad" />
+        <meta
+          name="keywords"
+          content="Préstamos, Créditos, Ahorro, Planes de Ahorro, Servicios Financieros, Inversiones, Fintech, Créditos Online, Préstamos Online"
+        />
+        <meta name="robots" content="index, follow" />
+        <meta
+          property="og:title"
+          content="Buscá ofertas de préstamos"
+        />
+        <meta
+          property="og:description"
+          content="¡La primera Fintech para todos! Préstamos simples y transparentes. ¡Sin complicaciones! Solicita tu préstamo personal o tarjeta de crédito hoy mismo."
+        />
+        <meta property="og:url" content="https://monefin.net/privacidad" />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:image"
+          content=""
+        />
+      </Helmet>
   <Wrapper>
     <TitleText>Políticas de Privacidad</TitleText>
     <Text>La presente Política de Privacidad (“Política de Privacidad”) rige para el tratamiento de los datos personales que usted como usuario (“Usuario”) del sitio web, voluntariamente brinda a Monefin LLC( “Monefin”), al navegar por la misma y utilizar los productos, servicios y/o herramientas (“Servicios”) dispuestos para el Usuario por Monefin a través de su sitio web (el “Sitio”). Esta Política de Privacidad debe ser leída en conjunto con los respectivos términos de uso (“Términos de Uso”).</Text>

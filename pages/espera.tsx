@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import Lottie from 'lottie-react';
 import { useRouter } from 'next/router';
-
-import Footer from '../containers/Footer';
+import { Helmet } from 'react-helmet';
+import LogoImg from '../public/assets/logo.svg';
 import WaitImg from '../public/assets/loading-transaction.json';
 
 import GreenCheck from '../public/assets/check-green.svg';
@@ -78,6 +78,11 @@ const ScreenWrapper = styled.div`
 
 const Wait = () => {
   const router = useRouter();
+  const webUrl = typeof window !== 'undefined' 
+  ? `${window.location.origin}${router.route}` : '';
+  const logoUrl = typeof window !== 'undefined' 
+  ? `${window.location.origin}${LogoImg.src}` 
+  : '';
   const [waitOver, setWaitOver] = useState<boolean>(false);
   const nombrecompleto = useFormStore((state) => state.nombrecompleto);
 
@@ -109,6 +114,30 @@ const Wait = () => {
 
   return (
     <ScreenWrapper>
+       <Helmet>
+        <title>Buscando... | Buscá Préstamos Online</title>
+        <meta name="description" content="Préstamos simples y transparentes ¡Sin complicaciones! Solicita tu préstamo personal o tarjeta de crédito hoy mismo." />
+        <link rel="canonical" href={webUrl} />
+        <meta
+          name="keywords"
+          content="Préstamos, Créditos, Ahorro, Planes de Ahorro, Servicios Financieros, Inversiones, Fintech, Créditos Online, Préstamos Online"
+        />
+        <meta name="robots" content="index, follow" />
+        <meta
+          property="og:title"
+          content="Buscá ofertas de préstamos"
+        />
+        <meta
+          property="og:description"
+          content="¡La primera Fintech para todos! Préstamos simples y transparentes. ¡Sin complicaciones! Solicita tu préstamo personal o tarjeta de crédito hoy mismo."
+        />
+        <meta property="og:url" content={webUrl} />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:image"
+          content={logoUrl}
+        />
+      </Helmet>
     <Wrapper>
        <TitleText style={{ fontWeight:'800' }}>  
          {`Hola 😁, ${nombrecompleto ? formatNombreCompleto(nombrecompleto) : ''}`}

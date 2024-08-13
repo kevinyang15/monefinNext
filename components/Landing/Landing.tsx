@@ -49,21 +49,17 @@ const LandingPage: React.FC = () => {
         </div>
         {/* Imagen de fondo */}
         <div className="absolute inset-0 hidden md:block">
-          <Image
-            src={HeroImage}
+          <img
+            src={HeroImage.src}
             alt="Hero Background"
-            layout="fill"
-            objectFit="cover"
           />
         </div>
       </div>
 
       <div className="md:hidden">
-        <Image
-          src={HeroImageMobile}
+        <img
+          src={HeroImageMobile.src}
           alt="Hero Background Mobile"
-          layout="responsive"
-          objectFit="cover"
         />
       </div>
 
@@ -73,7 +69,7 @@ const LandingPage: React.FC = () => {
           <div className="bg-[#232323] text-[#232323] md:py-1 md:px-1 py-0 px-0 text-lg font-bold md:rounded-lg rounded-none shadow-lg hover:bg-[#ff814e] md:w-auto w-full">
             <div className="text-center bg-[#e1d0bc] md:rounded-lg rounded-none md:w-52 md:h-52 w-full h-52 align-middle flex flex-col justify-center shadow-lg">
               <div className="text-3xl px-5 mb-2 flex justify-center">
-                <Image src={CardIcon} className="" width={100} height={100} alt="" />
+                <img src={CardIcon.src} className="" width={100} height={100} alt="" />
               </div>
               <p className="font-bold text-[#232323]">Tarjetas de Crédito</p>
             </div>
@@ -84,7 +80,7 @@ const LandingPage: React.FC = () => {
           <div className="bg-[#232323] text-[#232323] md:py-1 md:px-1 py-0 px-0 text-lg font-bold md:rounded-lg rounded-none shadow-lg hover:bg-[#ff814e] md:w-auto w-full">
             <div className="text-center bg-[#bda1ec] md:rounded-lg rounded-none md:w-52 md:h-52 w-full h-52 align-middle flex flex-col justify-center shadow-lg">
               <div className="text-3xl mb-2 flex justify-center">
-                <Image src={LoanIcon} className="w-24 h-24" width={100} height={100} alt="" />
+                <img src={LoanIcon.src} className="w-24 h-24" width={100} height={100} alt="" />
               </div>
               <p className="font-bold text-[#232323]">Préstamos Personales</p>
             </div>
@@ -95,7 +91,7 @@ const LandingPage: React.FC = () => {
           <div className="bg-[#232323] text-[#232323] md:py-1 md:px-1 py-0 px-0 text-lg font-bold md:rounded-lg rounded-none shadow-lg hover:bg-[#ff814e] md:w-auto w-full">
             <div className="text-center bg-[#ece9da] md:rounded-lg rounded-none md:w-52 md:h-52 w-full h-52 align-middle flex flex-col justify-center shadow-lg">
               <div className="text-3xl mb-2 flex justify-center">
-                <Image src={HipoIcon} className="w-24 h-24" width={100} height={100} alt="" />
+                <img src={HipoIcon.src} className="w-24 h-24" width={100} height={100} alt="" />
               </div>
               <p className="font-bold text-[#232323]">Hipotecas</p>
             </div>
@@ -106,7 +102,7 @@ const LandingPage: React.FC = () => {
           <div className="bg-[#232323] text-[#232323] md:py-1 md:px-1 py-0 px-0 text-lg font-bold md:rounded-lg rounded-none shadow-lg hover:bg-[#ff814e] md:w-auto w-full">
             <div className="text-center bg-[#ff814e] md:rounded-lg rounded-none md:w-52 md:h-52 w-full h-52 align-middle flex flex-col justify-center shadow-lg">
               <div className="text-3xl mb-2 flex justify-center">
-                <Image src={CarIcon} className="w-24 h-24" width={100} height={100} alt="" />
+                <img src={CarIcon.src} className="w-24 h-24" width={100} height={100} alt="" />
               </div>
               <p className="font-bold text-[#232323]">Préstamos para Autos</p>
             </div>
@@ -117,7 +113,7 @@ const LandingPage: React.FC = () => {
           <div className="bg-[#232323] text-[#232323] md:py-1 md:px-1 py-0 px-0 text-lg font-bold md:rounded-lg rounded-none shadow-lg hover:bg-[#ff814e] md:w-auto w-full">
             <div className="text-center bg-[#a2eac7] md:rounded-lg rounded-none md:w-52 md:h-52 w-full h-52 align-middle flex flex-col justify-center shadow-lg">
               <div className="text-3xl mb-2 flex justify-center">
-                <Image src={BusinessIcon} className="w-24 h-24" width={100} height={100} alt="" />
+                <img src={BusinessIcon.src} className="w-24 h-24" width={100} height={100} alt="" />
               </div>
               <p className="font-bold text-[#232323]">Préstamos para Negocios</p>
             </div>
@@ -196,7 +192,7 @@ const LandingPage: React.FC = () => {
 
       <div className="bg-[#ece9da] flex md:flex-row flex-col py-12 md:px-4 px-0 text-center align-middle items-center">
         <div className="md:w-2/4 w-full flex md:justify-end justify-center pb-8">
-          <Image className="w-3/4 rounded-xl shadow-md" src={appImage} alt="" />
+          <img className="w-3/4 rounded-xl shadow-md" src={appImage.src} alt="" width={300} />
         </div>
         <div className="md:w-2/4 w-full flex-col md:px-10 px-0 flex justify-center">
           <p className="text-lg mb-8 md:text-left text-center font-semibold px-5 md:px-20">
@@ -206,13 +202,13 @@ const LandingPage: React.FC = () => {
           </p>
           <div className="flex justify-center text-left gap-4 mb-8 md:px-0 px-5">
             <Link href="#" passHref>
-              <div className="bg-[#b7a2e6] text-[#232323] pt-1 px-1 text-lg font-bold rounded-lg shadow-lg hover:bg-[#ff814e]">
-                <Image src={AppleStore} alt="" />
+              <div className="bg-[#b7a2e6] text-[#232323] py-1 px-1 text-lg font-bold rounded-lg shadow-lg hover:bg-[#ff814e]">
+                <img  src={AppleStore.src} alt="" width={200} />
               </div>
             </Link>
             <Link href="#" passHref>
-              <div className="bg-[#b7a2e6] text-[#232323] pt-1 px-1 text-lg font-bold rounded-lg shadow-lg hover:bg-[#ff814e]">
-                <Image src={GoogleStore} alt="" />
+              <div className="bg-[#b7a2e6] text-[#232323] py-1 px-1 text-lg font-bold rounded-lg shadow-lg hover:bg-[#ff814e]">
+                <img src={GoogleStore.src} alt="" width={200} />
               </div>
             </Link>
           </div>
@@ -229,9 +225,9 @@ const LandingPage: React.FC = () => {
 
         <div className="flex md:flex-row flex-col justify-center gap-6 md:px-96 px-5">
           <div className="flex flex-col justify-center items-center w-full h-full">
-            <Image
+            <img
               className="rounded-xl py-2"
-              src={Img01}
+              src={Img01.src}
               width={300}
               height={200}
               alt=""
@@ -255,9 +251,9 @@ const LandingPage: React.FC = () => {
           </div>
 
           <div className="flex flex-col justify-center items-center w-full h-full">
-            <Image
+            <img
               className="rounded-xl py-2"
-              src={Img02}
+              src={Img02.src}
               width={300}
               height={200}
               alt=""
@@ -281,9 +277,9 @@ const LandingPage: React.FC = () => {
           </div>
 
           <div className="flex flex-col justify-center items-center w-full h-full">
-            <Image
+            <img
               className="rounded-xl py-2"
-              src={Img03}
+              src={Img03.src}
               width={300}
               height={200}
               alt=""
