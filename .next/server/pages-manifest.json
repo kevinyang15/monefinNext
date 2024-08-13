@@ -1,9 +1,9 @@
 {
   "/_app": "pages/_app.js",
-  "/contacto": "pages/contacto.html",
-  "/buscar-ofertas": "pages/buscar-ofertas.html",
   "/_error": "pages/_error.js",
+  "/buscar-ofertas": "pages/buscar-ofertas.html",
   "/_document": "pages/_document.js",
+  "/contacto": "pages/contacto.html",
   "/espera": "pages/espera.html",
   "/faq": "pages/faq.html",
   "/": "pages/index.html",

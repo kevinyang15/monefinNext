@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import styled from 'styled-components';
 import LogoImg from '../public/assets/logo.svg';
-import Image from 'next/image';  // Importa la etiqueta Image de Next.js
+// import Image from 'next/image';  // Importa la etiqueta Image de Next.js
 
 
 const Wrapper = styled.div`

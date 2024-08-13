@@ -82,17 +82,17 @@ const TopLineSubtitle = styled.h2`
       }
 `;
 
-const Wallet = styled.img`
-  width: 135px;
-  height: 80px;
-`;
+// const Wallet = styled.img`
+//   width: 135px;
+//   height: 80px;
+// `;
 
-const MainTitle = styled.h1`
-  font-size: 20px;
-  color: ${({ theme }) => theme.colors.background};
-  font-weight: 700;
-  margin: 8px 0;
-`;
+// const MainTitle = styled.h1`
+//   font-size: 20px;
+//   color: ${({ theme }) => theme.colors.background};
+//   font-weight: 700;
+//   margin: 8px 0;
+// `;
 
 const Disclaimer = styled.p`
   margin-top: 30px;

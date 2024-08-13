@@ -22,9 +22,9 @@ const ContactComponent: React.FC = () => {
         <h2 className="text-2xl mb-2 font-semibold">¡Pedí hoy tu préstamo!</h2>
         <p className="mb-5">Completá un solo formulario y recibí múltiples ofertas en segundos.<br />Sin vueltas ni trámites presenciales.</p>
         <Link href="/buscar-ofertas" passHref>
-          <a className="bg-[#e1d0bc] text-[#232323] font-bold py-4 px-6 text-lg rounded-lg shadow-lg hover:bg-[#ff814e]">
+          <div className="bg-[#e1d0bc] text-[#232323] font-bold py-4 px-6 text-lg rounded-lg shadow-lg hover:bg-[#ff814e]">
             Buscar préstamos 💰
-          </a>
+          </div>
         </Link>
       </div>
       <div className="mt-10 text-sm text-[#999]">

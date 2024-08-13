@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import styled, { useTheme } from 'styled-components';
+import styled from 'styled-components';
 
 import Footer from '../containers/Footer';
 import Card from '@mui/material/Card';
 import RejectedImg from '../public/assets/rejected.svg';
-import RejectedImg2 from '../public/assets/card.svg'
 import imgBlog from '../public/assets/monefin-pj-blog.svg'
 import Spacer from '../components/Spacer';
 import Button from '../components/Button';
@@ -78,23 +77,23 @@ const Subtext = styled.h4`
   }
 `;
 
-const ExtraText = styled.h5`
-  font-size: 14px;
-  line-height: 24px;
-  font-weight: 400;
-  color: ${({ theme }) => theme.colors.basic2000};
-  margin: 30px 0 0 0;
-  text-align: center;
-`;
+// const ExtraText = styled.h5`
+//   font-size: 14px;
+//   line-height: 24px;
+//   font-weight: 400;
+//   color: ${({ theme }) => theme.colors.basic2000};
+//   margin: 30px 0 0 0;
+//   text-align: center;
+// `;
 
-const ButtonWrapper = styled.div`
-  width: 100%;
-  margin-top: 20px;
+// const ButtonWrapper = styled.div`
+//   width: 100%;
+//   margin-top: 20px;
 
-  @media (orientation: portrait) and (max-width: 767px) {
-    width: 100%;
-  }
-`;
+//   @media (orientation: portrait) and (max-width: 767px) {
+//     width: 100%;
+//   }
+// `;
 
 const ScreenWrapper = styled.div`
   background-color: ${(props) => props.theme.colors.basic100};
@@ -124,7 +123,7 @@ const Results = () => {
   const logoUrl = typeof window !== 'undefined' 
   ? `${window.location.origin}${LogoImg.src}` 
   : '';
-  const theme = useTheme();
+  // const theme = useTheme();
   const nombrecompleto = useFormStore((state) => state.nombrecompleto);
 
   const formatNombreCompleto = (nombre: string) => {
@@ -136,9 +135,9 @@ const Results = () => {
   const goToBlog = () => {
     window.open('https://blog.monefin.net');
   }
-  const goToBlogCard = () => {
-    window.open('https://blog.monefin.net/tarjeta-santander');
-  }
+  // const goToBlogCard = () => {
+  //   window.open('https://blog.monefin.net/tarjeta-santander');
+  // }
 
   const [cards, setCards] = useState<Card[]>([]);
 

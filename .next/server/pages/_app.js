@@ -65,6 +65,7 @@ var logo = __webpack_require__(787);
 
 
 
+// import Image from 'next/image';  // Importa la etiqueta Image de Next.js
 const Wrapper = (external_styled_components_default()).div`
   width: calc(100% - 140px);
   display: flex;

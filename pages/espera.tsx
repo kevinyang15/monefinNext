@@ -33,11 +33,11 @@ const TitleText = styled.h2`
   color: ${({ theme }) => theme.colors.basic1000};
 `;
 
-const WaitImage = styled.img`
-  width: 60%;
-  height: auto;
-  max-width: 250px;
-`;
+// const WaitImage = styled.img`
+//   width: 60%;
+//   height: auto;
+//   max-width: 250px;
+// `;
 
 const MainText = styled.div`
   margin: 10px 0 20px 0;

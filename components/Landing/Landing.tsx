@@ -1,5 +1,4 @@
 import React from "react";
-import Image from "next/image";
 import Link from "next/link";
 import Lottie from "lottie-react";
 import HeroImage from "../../public/assets/hero-monefin-desktop.jpg";
@@ -38,9 +37,9 @@ const LandingPage: React.FC = () => {
               Financieros en segundos! Sin vueltas y muy fácil.
             </p>
             <Link href="/buscar-ofertas" passHref>
-              <a className="bg-[#b7a2e6] text-[#232323] py-4 px-6 text-lg font-bold rounded-lg shadow-lg hover:bg-[#ff814e]">
+              <div className="bg-[#b7a2e6] text-[#232323] py-4 px-6 text-lg font-bold rounded-lg shadow-lg hover:bg-[#ff814e] w-fit">
                 Buscar préstamos 💰
-              </a>
+              </div>
             </Link>
           </div>
         </div>
@@ -241,13 +240,14 @@ const LandingPage: React.FC = () => {
               Salir del Veraz puede parecer un desafío complicado, pero te
               explicamos como es posible hacerlo utilizando solo tu DNI.
             </p>
-            <a
+            <Link
               href="https://blog.monefin.net/guia-completa-para-salir-del-veraz-solo-con-tu-dni-y-gratis/"
-              target="_blank"
-              className="bg-[#b7a2e6] text-[#232323] py-2 my-5 px-3 text-base font-semibold rounded-lg hover:bg-[#ff814e]"
             >
+              <div className="bg-[#b7a2e6] text-[#232323] py-2 my-5 px-3 text-base font-semibold rounded-lg hover:bg-[#ff814e]"
+              >
               Leer nota
-            </a>
+              </div>
+            </Link>
           </div>
 
           <div className="flex flex-col justify-center items-center w-full h-full">
@@ -267,13 +267,14 @@ const LandingPage: React.FC = () => {
               Te contamos todos Los detalles de la línea de préstamos que
               presentó una entidad privada. Requisitos, tasas y cómo pedirlo
             </p>
-            <a
+            <Link
               href="https://blog.monefin.net/prestamos-de-100-millones-a-pagar-en-60-cuotas-quienes-pueden-acceder-y-como-solicitarlo/"
-              target="_blank"
-              className="bg-[#b7a2e6] text-[#232323] py-2 my-5 px-3 text-base font-semibold rounded-lg hover:bg-[#ff814e]"
             >
+              <div className="bg-[#b7a2e6] text-[#232323] py-2 my-5 px-3 text-base font-semibold rounded-lg hover:bg-[#ff814e]"
+              >
               Leer nota
-            </a>
+              </div>
+            </Link>
           </div>
 
           <div className="flex flex-col justify-center items-center w-full h-full">
@@ -293,23 +294,25 @@ const LandingPage: React.FC = () => {
               El Banco Ciudad presentó una oferta de préstamos para financiar la
               adquisición de vehículos nacionales 0km.
             </p>
-            <a
+            <Link
               href="https://blog.monefin.net/el-banco-ciudad-lanzo-prestamos-para-la-compra-de-autos-hechos-en-la-argentina/"
-              target="_blank"
-              className="bg-[#b7a2e6] text-[#232323] py-2 my-5 px-3 text-base font-semibold rounded-lg hover:bg-[#ff814e]"
             >
+              <div className="bg-[#b7a2e6] text-[#232323] py-2 my-5 px-3 text-base font-semibold rounded-lg hover:bg-[#ff814e]"
+              >
               Leer nota
-            </a>
+              </div>
+            </Link>
           </div>
         </div>
-        <div className="pt-12">
-          <a
+        <div className="pt-12 flex justify-center">
+          <Link
             href="https://blog.monefin.net"
-            target="_blank"
-            className="bg-[#b7a2e6] text-[#232323] py-4 px-24 text-lg font-bold rounded-lg shadow-lg hover:bg-[#ff814e]"
           >
+            <div className="bg-[#b7a2e6] text-[#232323] py-4 px-24 text-lg font-bold rounded-lg shadow-lg hover:bg-[#ff814e]"
+            >
             Leer Más 📚
-          </a>
+            </div>
+          </Link>
         </div>
       </div>
 
