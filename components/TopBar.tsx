@@ -74,7 +74,7 @@ const TopBar = () => {
             )}      
       </div>
       <div className='menuMobile'>
-        <Link href="/buscar-ofertas" passHref>
+        <Link href="/prestamos" passHref>
           <CustomLink style={{ padding: '20px' }}>Buscar</CustomLink>
         </Link>
         <Link href="/nosotros" passHref>

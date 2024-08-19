@@ -73,7 +73,7 @@ const Footer = () => {
       <Link href="/" passHref>
         <WrappedLink style={{ textDecoration: 'none' }}><InnerLink>Inicio</InnerLink></WrappedLink>
       </Link>
-      <Link href="/buscar-ofertas" passHref>
+      <Link href="/prestamos" passHref>
         <WrappedLink style={{ textDecoration: 'none' }}><InnerLink>Buscar ofertas</InnerLink></WrappedLink>
       </Link>
       <CustomLink href="https://blog.monefin.net" target="_blank" rel="noopener noreferrer">Blog</CustomLink>

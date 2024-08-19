@@ -36,7 +36,7 @@ const LandingPage: React.FC = () => {
               recomendaciones seleccionadas. Encontrá Préstamos y/o Productos
               Financieros en segundos! Sin vueltas y muy fácil.
             </p>
-            <Link href="/buscar-ofertas" passHref>
+            <Link href="/prestamos" passHref>
               <div className="bg-[#b7a2e6] text-[#232323] py-4 px-6 text-lg font-bold rounded-lg shadow-lg hover:bg-[#ff814e] w-fit">
                 Buscar préstamos 💰
               </div>
@@ -64,7 +64,7 @@ const LandingPage: React.FC = () => {
 
       {/* Categories Section */}
       <div className="flex md:flex-row flex-col justify-center items-center md:gap-6 gap-0 md:py-8 py-0 bg-white">
-        <Link href="/buscar-ofertas" passHref>
+        <Link href="/prestamos" passHref>
           <div className="bg-[#232323] text-[#232323] md:py-1 md:px-1 py-0 px-0 text-lg font-bold md:rounded-lg rounded-none shadow-lg hover:bg-[#ff814e] md:w-auto w-full">
             <div className="text-center bg-[#e1d0bc] md:rounded-lg rounded-none md:w-52 md:h-52 w-full h-52 align-middle flex flex-col justify-center shadow-lg">
               <div className="text-3xl px-5 mb-2 flex justify-center">
@@ -75,7 +75,7 @@ const LandingPage: React.FC = () => {
           </div>
         </Link>
 
-        <Link href="/buscar-ofertas" passHref>
+        <Link href="/prestamos" passHref>
           <div className="bg-[#232323] text-[#232323] md:py-1 md:px-1 py-0 px-0 text-lg font-bold md:rounded-lg rounded-none shadow-lg hover:bg-[#ff814e] md:w-auto w-full">
             <div className="text-center bg-[#bda1ec] md:rounded-lg rounded-none md:w-52 md:h-52 w-full h-52 align-middle flex flex-col justify-center shadow-lg">
               <div className="text-3xl mb-2 flex justify-center">
@@ -86,7 +86,7 @@ const LandingPage: React.FC = () => {
           </div>
         </Link>
 
-        <Link href="/buscar-ofertas" passHref>
+        <Link href="/prestamos" passHref>
           <div className="bg-[#232323] text-[#232323] md:py-1 md:px-1 py-0 px-0 text-lg font-bold md:rounded-lg rounded-none shadow-lg hover:bg-[#ff814e] md:w-auto w-full">
             <div className="text-center bg-[#ece9da] md:rounded-lg rounded-none md:w-52 md:h-52 w-full h-52 align-middle flex flex-col justify-center shadow-lg">
               <div className="text-3xl mb-2 flex justify-center">
@@ -97,7 +97,7 @@ const LandingPage: React.FC = () => {
           </div>
         </Link>
 
-        <Link href="/buscar-ofertas" passHref>
+        <Link href="/prestamos" passHref>
           <div className="bg-[#232323] text-[#232323] md:py-1 md:px-1 py-0 px-0 text-lg font-bold md:rounded-lg rounded-none shadow-lg hover:bg-[#ff814e] md:w-auto w-full">
             <div className="text-center bg-[#ff814e] md:rounded-lg rounded-none md:w-52 md:h-52 w-full h-52 align-middle flex flex-col justify-center shadow-lg">
               <div className="text-3xl mb-2 flex justify-center">
@@ -108,7 +108,7 @@ const LandingPage: React.FC = () => {
           </div>
         </Link>
 
-        <Link href="/buscar-ofertas" passHref>
+        <Link href="/prestamos" passHref>
           <div className="bg-[#232323] text-[#232323] md:py-1 md:px-1 py-0 px-0 text-lg font-bold md:rounded-lg rounded-none shadow-lg hover:bg-[#ff814e] md:w-auto w-full">
             <div className="text-center bg-[#a2eac7] md:rounded-lg rounded-none md:w-52 md:h-52 w-full h-52 align-middle flex flex-col justify-center shadow-lg">
               <div className="text-3xl mb-2 flex justify-center">
@@ -132,7 +132,7 @@ const LandingPage: React.FC = () => {
             Podés mejorar tu historial crediticio en poco tiempo con nuestro
             programa especializado en el manejo de crédito.
           </p>
-          <Link href="/buscar-ofertas" passHref>
+          <Link href="/prestamos" passHref>
             <div className="bg-[#b7a2e6] text-[#232323] py-4 px-6 text-lg font-bold rounded-lg shadow-lg hover:bg-[#ff814e]">
               Empezar ahora 🚀
             </div>
@@ -146,7 +146,7 @@ const LandingPage: React.FC = () => {
             Monefin te conecta con el apoyo del gobierno y opciones de alivio de
             deuda personalizadas.
           </p>
-          <Link href="/buscar-ofertas" passHref>
+          <Link href="/prestamos" passHref>
             <div className="bg-[#b7a2e6] text-[#232323] py-4 px-6 text-lg font-bold rounded-lg shadow-lg hover:bg-[#ff814e]">
               Saber cómo 💸
             </div>

@@ -21,7 +21,7 @@ const ContactComponent: React.FC = () => {
       <div className="bg-[#bda1ec] text-[#232323] p-8 rounded-lg w-4/5 max-w-lg mx-auto shadow-lg">
         <h2 className="text-2xl mb-2 font-semibold">¡Pedí hoy tu préstamo!</h2>
         <p className="mb-5">Completá un solo formulario y recibí múltiples ofertas en segundos.<br />Sin vueltas ni trámites presenciales.</p>
-        <Link href="/buscar-ofertas" passHref>
+        <Link href="/prestamos" passHref>
           <div className="bg-[#e1d0bc] text-[#232323] font-bold py-4 px-6 text-lg rounded-lg shadow-lg hover:bg-[#ff814e]">
             Buscar préstamos 💰
           </div>
