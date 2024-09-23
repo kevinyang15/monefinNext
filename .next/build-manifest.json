@@ -5,9 +5,9 @@
   "devFiles": [],
   "ampDevFiles": [],
   "lowPriorityFiles": [
-    "static/DMB6IYYG_ZBgf4eDlNjIx/_buildManifest.js",
-    "static/DMB6IYYG_ZBgf4eDlNjIx/_ssgManifest.js",
-    "static/DMB6IYYG_ZBgf4eDlNjIx/_middlewareManifest.js"
+    "static/gySyDMkd-CklU-2VRn7mh/_buildManifest.js",
+    "static/gySyDMkd-CklU-2VRn7mh/_ssgManifest.js",
+    "static/gySyDMkd-CklU-2VRn7mh/_middlewareManifest.js"
   ],
   "pages": {
     "/": [
@@ -69,7 +69,7 @@
       "static/chunks/framework-b759e809ec16812b.js",
       "static/chunks/main-03586e2758997a42.js",
       "static/chunks/852-12bd0ebe41421d2a.js",
-      "static/chunks/pages/ofertas-61e1eda6b2010a15.js"
+      "static/chunks/pages/ofertas-20410888693afa72.js"
     ],
     "/prestamos": [
       "static/chunks/webpack-85a384d19f0dce0c.js",
