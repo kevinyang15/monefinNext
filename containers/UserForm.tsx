@@ -11,11 +11,12 @@ import InputSelect, { Option } from '../components/InputSelect';
 import { bankOptions, employmentOptions } from '../data/selectOptions';
 import AutoComplete from '../components/AutoComplete';
 import { SelectChangeEvent } from '@mui/material';
-import Lottie from 'lottie-react';
+import dynamic from 'next/dynamic';
 import { gtag_report_conversion } from './gtag';
 import WaitImg from '../public/assets/wait.json';
 import useFormStore from '../state/useFormStore';
 
+const Lottie = dynamic(() => import('lottie-react'), { ssr: false });;
 
 const Wrapper = styled.div`
   width: 100%;
@@ -134,15 +135,17 @@ const UserForm = () => {
   // Nueva función para verificar el correo electrónico
   const verifyEmail = async (email: string): Promise<boolean> => {
     try {
-      const response = await fetch('https://us-central1-monefinweb.cloudfunctions.net/Monefin-Email-Verify', {
+      const response = await fetch('https://monefin-email-verify2-700926948640.us-east1.run.app', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ email })
+        body: JSON.stringify({ data: email })
       });
 
-      if (!response.ok) {
+      const data = await response.json();
+
+      if (!response.ok || !data.value) {
         throw new Error('Email is not valid');
       }
 

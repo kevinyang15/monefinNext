@@ -8,30 +8,30 @@ type WindowProps = {
 };
 
 const useWindowProps = (): WindowProps => {
-  const getSize = () => ({
-    width: typeof window !== "undefined" ? window.innerWidth : 0,
-    height: typeof window !== "undefined" ? window.innerHeight : 0,
-    orientation:
-      typeof window !== "undefined" && window.innerWidth > window.innerHeight
-        ? "landscape"
-        : "portrait",
-    isMobile:
-      typeof window !== "undefined" &&
-      window.innerWidth < window.innerHeight &&
-      window.innerWidth < 768,
+  const [windowSize, setWindowSize] = useState<WindowProps>({
+    width: 0,
+    height: 0,
+    orientation: "portrait",
+    isMobile: false,
   });
 
-  const [windowSize, setWindowSize] = useState<WindowProps>(getSize);
-
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      const handleResize = () => {
-        setWindowSize(getSize());
-      };
+    const getSize = (): WindowProps => ({
+      width: window.innerWidth,
+      height: window.innerHeight,
+      orientation: window.innerWidth > window.innerHeight ? "landscape" : "portrait",
+      isMobile: window.innerWidth < window.innerHeight && window.innerWidth < 768,
+    });
 
-      window.addEventListener("resize", handleResize);
-      return () => window.removeEventListener("resize", handleResize);
-    }
+    const handleResize = () => {
+      setWindowSize(getSize());
+    };
+
+    // Set initial size
+    handleResize();
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   return windowSize;

@@ -47,7 +47,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
-    "sitemap": "next-sitemap"
+    "sitemap": "next-sitemap",
+    "export": "next export"
   },
   "eslintConfig": {
     "extends": [

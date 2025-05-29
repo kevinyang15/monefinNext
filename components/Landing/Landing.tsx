@@ -1,6 +1,5 @@
 import React from "react";
 import Link from "next/link";
-import Lottie from "lottie-react";
 import HeroImage from "../../public/assets/hero-monefin-desktop.jpg";
 import HeroImageMobile from "../../public/assets/hero-monefin.jpg";
 import appImage from "../../public/assets/appmonefin.jpg";
@@ -17,6 +16,9 @@ import AppleStore from "../../public/assets/apple-store.svg";
 import GoogleStore from "../../public/assets/google-store.svg";
 import { FaCreditCard, FaChartLine, FaLightbulb } from "react-icons/fa";
 import Footer from "../../containers/Footer";
+import dynamic from 'next/dynamic';
+
+const Lottie = dynamic(() => import('lottie-react'), { ssr: false });
 
 const LandingPage: React.FC = () => {
   return (

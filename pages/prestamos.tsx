@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
-import Lottie from 'lottie-react';
+import dynamic from 'next/dynamic';
 import UserForm from '../containers/UserForm';
 import Footer from '../containers/Footer';
 import CoinMonefin from '../public/assets/monefinCoin.json';
@@ -8,6 +8,7 @@ import { Helmet } from 'react-helmet';
 import LogoImg from '../public/assets/logo.svg';
 import { useRouter } from "next/router";
 
+const Lottie = dynamic(() => import('lottie-react'), { ssr: false });
 
 const Wrapper = styled.div`
   height: auto;

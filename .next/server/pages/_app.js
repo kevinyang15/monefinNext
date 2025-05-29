@@ -11,7 +11,7 @@ exports.modules = {
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "Z": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({"src":"/_next/static/media/logo.0c8c023e.svg","height":196,"width":612});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({"src":"/_next/static/media/logo.adbb8999.svg","height":196,"width":612});
 
 /***/ }),
 
@@ -36,16 +36,28 @@ var external_styled_components_default = /*#__PURE__*/__webpack_require__.n(exte
 ;// CONCATENATED MODULE: ./hooks/useWindowProps.ts
 
 const useWindowProps = ()=>{
-    const getSize = ()=>({
-            width:  false ? 0 : 0,
-            height:  false ? 0 : 0,
-            orientation:  false ? 0 : "portrait",
-            isMobile:  false && 0
-        })
-    ;
-    const { 0: windowSize , 1: setWindowSize  } = (0,external_react_.useState)(getSize);
+    const { 0: windowSize , 1: setWindowSize  } = (0,external_react_.useState)({
+        width: 0,
+        height: 0,
+        orientation: "portrait",
+        isMobile: false
+    });
     (0,external_react_.useEffect)(()=>{
-        if (false) {}
+        const getSize = ()=>({
+                width: window.innerWidth,
+                height: window.innerHeight,
+                orientation: window.innerWidth > window.innerHeight ? "landscape" : "portrait",
+                isMobile: window.innerWidth < window.innerHeight && window.innerWidth < 768
+            })
+        ;
+        const handleResize = ()=>{
+            setWindowSize(getSize());
+        };
+        // Set initial size
+        handleResize();
+        window.addEventListener("resize", handleResize);
+        return ()=>window.removeEventListener("resize", handleResize)
+        ;
     }, []);
     return windowSize;
 };

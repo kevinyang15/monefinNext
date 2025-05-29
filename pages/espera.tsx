@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import Lottie from 'lottie-react';
+import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
 import { Helmet } from 'react-helmet';
 import LogoImg from '../public/assets/logo.svg';
@@ -12,6 +12,8 @@ import Spacer from '../components/Spacer';
 import { sleep } from '../utils/utils';
 
 import useFormStore from "../state/useFormStore";
+
+const Lottie = dynamic(() => import('lottie-react'), { ssr: false });
 
 const Wrapper = styled.div`
   height: auto;
