@@ -177,13 +177,17 @@ const BuscarOfertas = () => {
       </TopLineWrapper>
       <UserForm />
       <Disclaimer>
-      Antes de utilizar el sitio web www.monefin.net ("el Sitio"), propiedad de CRED IT FINDER LTD. La dirección registrada de la Compañía es Hope Hill Road, Road Town, VG1110, Islas Vírgenes Británicas. Al utilizar el Sitio, usted acepta que los datos proporcionados pueden ser utilizados por la Compañía de acuerdo con la legislación aplicable y la Política de Privacidad del Sitio.
 
-El otorgamiento de préstamos personales está sujeto a calificación crediticia y condiciones de contratación, establecidas por la entidad financiera elegida en función de la calificación crediticia resultante. Monto en pesos: máximo $10.000.000, mínimo $1.000. Plazo: máximo 36 meses, mínimo 3 meses. Ejemplo: para un préstamo de $200.000 a 36 meses, Tasa Nominal Anual fija (88.8%), Tasa Efectiva Anual fija (192.47%), Costo Financiero Total Nominal Anual: 112.19%.
+      Por favor, lea detenidamente los siguientes Términos y Condiciones (“Términos”) antes de utilizar www.monefin.net (“el Sitio”), operado por Pacific Creative Lab LTD (“la Compañía”, “nosotros”, “nos” o “nuestro”). La dirección registrada de la Compañía es Diamond 1, Carino Development, Hamilton Estate, Nevis, KN1201, San Cristóbal y Nieves. Teléfono: +5562995743652.
 
-Ejemplo de préstamo: Para un préstamo de $5.000 a 90 días con TNA de 88.8%, el cliente devolverá $5.949.21. Tasa Máxima Efectiva Anual: 192.47%. Tasa Mínima Efectiva Anual: 25%.
+Estos Términos se rigen e interpretan de acuerdo con las leyes de San Cristóbal y Nieves. Cualquier disputa derivada de estos Términos estará sujeta a la jurisdicción exclusiva de los tribunales de dicho país. Los datos transmitidos y cedidos en o a través del Sitio son propiedad exclusiva de Pacific Creative Lab LTD. Al utilizar el Sitio, usted acepta que cualquier información proporcionada podrá ser utilizada por la Compañía conforme a la legislación aplicable y a nuestra Política de Privacidad.
 
-Tenga en cuenta que la información en este Sitio es meramente informativa y no constituye asesoramiento financiero o legal. Nos reservamos el derecho de modificar estos términos en cualquier momento. Si no está de acuerdo, le recomendamos que se abstenga de utilizar el Sitio.      </Disclaimer>
+Pacific Creative Lab LTD no es una entidad financiera ni otorga préstamos. El sitio monefin.net funciona únicamente como un comparador gratuito de servicios financieros ofrecidos por terceros. Toda la información publicada tiene fines informativos y publicitarios. La contratación de cualquier servicio o producto se realiza directamente con las entidades financieras correspondientes, bajo sus propias condiciones y políticas de aprobación crediticia.
+
+El otorgamiento de préstamos está sujeto a evaluación crediticia y a las condiciones definidas por cada entidad financiera. En caso de aprobarse un préstamo, el monto, plazo, tasa de interés y demás condiciones serán determinadas exclusivamente por la entidad elegida.
+
+Ejemplo orientativo: Para un préstamo de $200.000 en 36 meses, Tasa Nominal Anual (TNA) fija del 88.8%, Tasa Efectiva Anual (TEA) fija del 192.47%, Costo Financiero Total Nominal Anual (CFTNA) del 112.19%. Para un préstamo de $5.000 a 90 días con TNA del 88.8%, el cliente devolverá $5.949,21. Las tasas pueden variar según la entidad financiera, el perfil crediticio y el contexto normativo.
+</Disclaimer>
       <Footer />
       </ContentWrapper>
     </Wrapper>

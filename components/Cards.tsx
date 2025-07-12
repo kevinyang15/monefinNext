@@ -1,8 +1,10 @@
 // src/components/Cards.tsx
 import React from 'react';
+import useFormStore from '../state/useFormStore';
 
 interface CardProps {
   id: number;
+  name: string;
   imagen: string;
   titulo: string;
   subtitulo: string;
@@ -14,9 +16,30 @@ interface CardProps {
   recomendado: boolean;
 }
 
-const Cards: React.FC<CardProps> = ({ imagen, titulo, subtitulo, texto, content, description, button, url, recomendado }) => {
+
+const Cards: React.FC<CardProps> = ({ name, imagen, titulo, subtitulo, texto, content, description, button, url, recomendado }) => {
+  
+  const dni = useFormStore((state) => state.dni);
+
+  const handleCardClick = async () => {
+    if (!dni || !name) return;
+  
+    try {
+      await fetch('https://monefin-track-click-700926948640.us-central1.run.app', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ dni, name }),
+        keepalive: true, 
+      });
+    } catch (error) {
+      console.error("Error enviando click:", error);
+    }
+  };
+
+  console.log('prueba-test', dni, name)
+  
   return (
-    <a href={url} target="" rel="noopener noreferrer" className="block border border-[#BDA1EC] rounded-2xl p-4 shadow-lg bg-white hover:shadow-xl transition-shadow duration-200 w-full mb-4">
+    <a href={url} target="" rel="noopener noreferrer" onClick={handleCardClick} className="block border border-[#BDA1EC] rounded-2xl p-4 shadow-lg bg-white hover:shadow-xl transition-shadow duration-200 w-full mb-4">
      <div className='flex justify-end sm:justify-start'>
       {recomendado && <span className="bg-orange-500 text-white px-2 py-1 rounded-full text-xs">RECOMENDADO</span>}
       </div>

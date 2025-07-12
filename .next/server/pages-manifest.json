@@ -1,16 +1,7 @@
 {
   "/_app": "pages/_app.js",
-  "/_error": "pages/_error.js",
-  "/contacto": "pages/contacto.html",
-  "/faq": "pages/faq.html",
-  "/": "pages/index.html",
-  "/nosotros": "pages/nosotros.html",
-  "/404": "pages/404.html",
   "/_document": "pages/_document.js",
-  "/ofertas": "pages/ofertas.html",
-  "/espera": "pages/espera.html",
-  "/privacidad": "pages/privacidad.html",
-  "/terminos": "pages/terminos.html",
-  "/reportWebVitals": "pages/reportWebVitals.html",
-  "/prestamos": "pages/prestamos.html"
+  "/_error": "pages/_error.js",
+  "/": "pages/index.js",
+  "/prestamos": "pages/prestamos.js"
 }

@@ -67,6 +67,8 @@ const UserForm = () => {
   const router = useRouter();
 
   const setNombrecompleto = useFormStore((state) => state.setNombrecompleto);
+  const setDnizustand = useFormStore((state) => state.setDnizustand);
+  const setEmailzustand = useFormStore((state) => state.setEmailzustand);
   const [acceptedTerms, setAcceptedTerms] = useState(false);
   const [dni, setDni] = useState('');
   const [email, setEmail] = useState('');
@@ -220,6 +222,25 @@ const UserForm = () => {
         }
         
         setNombrecompleto(result.nombrecompleto);
+        setDnizustand(dni);
+        setEmailzustand(email);
+
+        try {
+          await fetch('https://sendingemail-700926948640.us-east1.run.app', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              email,
+              firstName: result.nombrecompleto.split(' ')[1]
+            })
+          });
+          // console.log('✅ Email de bienvenida enviado.');
+        } catch (error) {
+          console.error('Error al enviar el email de bienvenida:', error);
+        }
+
+        
+        
         router.push('/espera');
         gtag_report_conversion();
       } else {

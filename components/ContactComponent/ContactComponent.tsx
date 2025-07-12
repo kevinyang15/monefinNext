@@ -22,14 +22,14 @@ const ContactComponent: React.FC = () => {
         <h2 className="text-2xl mb-2 font-semibold">¡Pedí hoy tu préstamo!</h2>
         <p className="mb-5">Completá un solo formulario y recibí múltiples ofertas en segundos.<br />Sin vueltas ni trámites presenciales.</p>
         <Link href="/prestamos" passHref>
-          <div className="bg-[#e1d0bc] text-[#232323] font-bold py-4 px-6 text-lg rounded-lg shadow-lg hover:bg-[#ff814e]">
+          <div className="bg-[#ECE9DA] text-[#232323] font-bold py-4 px-6 text-lg rounded-lg shadow-lg hover:bg-[#ff814e]">
             Buscar préstamos 💰
           </div>
         </Link>
       </div>
       <div className="mt-10 text-sm text-[#999]">
         <p className="my-1">
-          © 2024 Monefin es propiedad de CRED IT FINDER LTD. con dirección registrada en Hope Hill Road, Road Town, VG1110, Islas Vírgenes Británicas. Todos los derechos reservados.
+        © 2024 Monefin es propiedad de Pacific Creative Lab LTD. con dirección registrada en Diamond 1, Carino Development, Hamilton Estate, Nevis, KN1201, San Cristóbal y Nieves. Todos los derechos reservados.
         </p>
         <p className="my-1">
           <a className="text-[#957bc2] no-underline" href="/terms">Términos y Condiciones</a> | <a className="text-[#957bc2] no-underline" href="/privacidad">Políticas de privacidad</a>
