@@ -116,6 +116,17 @@ const ScreenWrapper = styled.div`
 
 `;
 
+export async function getServerSideProps(ctx: any) {
+  const token = ctx.req.cookies?.session_token as string | undefined;
+  const codeCookie = ctx.req.cookies?.session_code;
+  const { verifySessionToken } = await import('../utils/utils');
+  const payload = token ? verifySessionToken(token) : null;
+  if (!payload || !payload.code || (codeCookie && codeCookie !== payload.code)) {
+    return { redirect: { destination: '/', permanent: false } };
+  }
+  return { props: {} };
+}
+
 const Results = () => {
   const router = useRouter();
   const webUrl = typeof window !== 'undefined' 
