@@ -32,7 +32,8 @@ const ContactComponent: React.FC = () => {
         © 2024 Monefin es propiedad de Pacific Creative Lab LTD. con dirección registrada en Diamond 1, Carino Development, Hamilton Estate, Nevis, KN1201, San Cristóbal y Nieves. Todos los derechos reservados.
         </p>
         <p className="my-1">
-          <a className="text-[#957bc2] no-underline" href="/terms">Términos y Condiciones</a> | <a className="text-[#957bc2] no-underline" href="/privacidad">Políticas de privacidad</a>
+          <Link className="text-[#957bc2] no-underline" href="/terms">Términos y Condiciones</Link> |{' '}
+          <Link className="text-[#957bc2] no-underline" href="/privacidad">Políticas de privacidad</Link>
         </p>
       </div>
     </div>

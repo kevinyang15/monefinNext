@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
 import Footer from '../containers/Footer';
-import Card from '@mui/material/Card';
+import MuiCard from '@mui/material/Card';
 import RejectedImg from '../public/assets/rejected.svg';
 import imgBlog from '../public/assets/monefin-pj-blog.svg'
 import Spacer from '../components/Spacer';
@@ -18,8 +18,9 @@ import { Helmet } from 'react-helmet';
 import LogoImg from '../public/assets/logo.svg';
 
 
-interface Card {
+interface OfferCard {
   id: number;
+  name: string;
   imagen: string;
   titulo: string;
   subtitulo: string;
@@ -118,13 +119,22 @@ const ScreenWrapper = styled.div`
 
 const Results = () => {
   const router = useRouter();
+  // const codeFromStore = useFormStore((s) => s.code);
+  // const codeFromUrl = router.query.code as string;
+  // const code = codeFromUrl || codeFromStore;
+
   const webUrl = typeof window !== 'undefined' 
   ? `${window.location.origin}${router.route}` : '';
   const logoUrl = typeof window !== 'undefined' 
   ? `${window.location.origin}${LogoImg.src}` 
   : '';
+  
   // const theme = useTheme();
   const nombrecompleto = useFormStore((state) => state.nombrecompleto);
+
+  const utmMedium = useFormStore((state) => state.utmMedium);
+
+  // console.log(utmMedium)
 
   const formatNombreCompleto = (nombre: string) => {
     const [firstName, lastName] = nombre.split(' ');
@@ -139,7 +149,7 @@ const Results = () => {
   //   window.open('https://blog.monefin.net/tarjeta-santander');
   // }
 
-  const [cards, setCards] = useState<Card[]>([]);
+  const [cards, setCards] = useState<OfferCard[]>([]);
 
   useEffect(() => {
     setCards(data);
@@ -174,14 +184,26 @@ const Results = () => {
     <Wrapper>
       <div className='flex items-center'>
         <WaitImage src={RejectedImg.src} alt="Resultados" />
-        <MainText>{`Ofertas disponibles para ${nombrecompleto ? formatNombreCompleto(nombrecompleto) : ''} 🎉`}</MainText>
+        <MainText>{`Ofertas disponibles ${nombrecompleto ? 'para ' + formatNombreCompleto(nombrecompleto) : ''} 🎉`}</MainText>
       </div>
       <div className="flex flex-col items-center justify-center p-4 w-full">
-        {cards.map(card => (
+        {/* {cards.map(card => (
           <Cards key={card.id} {...card} />
-        ))}
+        ))} */}
+{cards
+  .filter((card) => {
+    // Mostrar todas si el utm es 'capitalya'
+    if (utmMedium === 'capitalya') return true;
+
+    // Ocultar solo la de 'capitalya' si no coincide el utm
+    return card.name !== 'capitalya';
+  })
+  .map((card) => (
+    <Cards key={card.id} {...card} />
+  ))
+}
       </div>
-      <Card style={{boxShadow:"none"}}>
+      <MuiCard style={{boxShadow:"none"}}>
         <div style={{display:'flex',justifyContent:'center'}}>
           <WaitImage src={imgBlog.src} alt="Resultados" />  
         </div>
@@ -193,7 +215,7 @@ const Results = () => {
           text="¡Ver más opciones! 💳"
           onClick={goToBlog}
         />
-      </Card>
+      </MuiCard>
       <Subtext>¡Enteraté las últimas noticias del mundo financiero y que no te agarren de sorpresa!</Subtext>
     
       <Spacer size={80} />

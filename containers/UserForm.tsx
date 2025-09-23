@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import Button from '../components/Button';
 import Checkbox from '../components/Checkbox';
@@ -69,6 +69,11 @@ const UserForm = () => {
   const setNombrecompleto = useFormStore((state) => state.setNombrecompleto);
   const setDnizustand = useFormStore((state) => state.setDnizustand);
   const setEmailzustand = useFormStore((state) => state.setEmailzustand);
+  const setUtmMedium = useFormStore((state) => state.setUtmMedium);
+  const setCode = useFormStore((s) => s.setCode);
+  const setNeedsConfirm = useFormStore((s) => s.setNeedsConfirm);
+  const setPendingId = useFormStore((s) => s.setPendingId);
+
   const [acceptedTerms, setAcceptedTerms] = useState(false);
   const [dni, setDni] = useState('');
   const [email, setEmail] = useState('');
@@ -79,6 +84,15 @@ const UserForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false); // Nuevo estado para controlar el envío del formulario
   const [emailError, setEmailError] = useState(''); // Nuevo estado para manejar errores de validación del correo
   const [dniError, setDniError] = useState(''); // Compruebo la mayoría de edad.
+  const [, setFormError] = useState('');
+
+  useEffect(() => {
+    const utm = router.query.utm_medium;
+    if (utm && typeof utm === 'string') {
+      setUtmMedium(utm);
+    }
+  }, [router.query, setUtmMedium]);
+
 
   // const EmailIcon = <Image src={Email} alt="Email Icon" width={20} height={20} />
 
@@ -88,7 +102,15 @@ const UserForm = () => {
 
   const goToTyC = () => {};
 
-  const disabledSubmit = !acceptedTerms || dni === '' || email === '' || phone === '+54 ' || !employment || !bank;
+  // const disabledSubmit = !acceptedTerms || dni === '' || email === '' || phone === '+54 ' || !employment || !bank;
+  const canSubmit =
+  acceptedTerms &&
+  dni !== '' &&
+  email !== '' &&
+  phone !== '+54 ' &&
+  !!employment &&
+  !!bank &&
+  !isSubmitting;
 
   const handleNewEmployment = (event: SelectChangeEvent<string>) => {
     if (event) setEmployment(event.target.value);
@@ -159,9 +181,14 @@ const UserForm = () => {
   };
 
   const submitForm = async () => {
+    setFormError('');
     if (!validated) setValidated(true);
 
-    if (!dni || !email || !phone || !employment || !bank || !acceptedTerms || isSubmitting) {
+    if (!canSubmit) return;
+    
+    if (!validEmail.test(email)) {
+      setEmailError('Parece que el Correo Electrónico está mal escrito');
+      setIsSubmitting(false);
       return;
     }
 
@@ -169,11 +196,6 @@ const UserForm = () => {
     setEmailError(''); // Reset email error
     setDniError(''); // Reset dni error
 
-    if (!validEmail.test(email)) {
-      setEmailError('Parece que el Correo Electrónico está mal escrito');
-      setIsSubmitting(false);
-      return;
-    }
 
     const emailIsValid = await verifyEmail(email);
     if (!emailIsValid) {
@@ -200,60 +222,83 @@ const UserForm = () => {
         body: JSON.stringify(formData)
       });
 
-      if (response.ok) {
-        const result = await response.json();
-        // console.log("Document written with ID: ", result.id);
-        // console.log("Nombre del usuario: ", result.nombrecompleto);
-        // console.log("Fecha de Nacimiento: ", result.fechanacimiento);
+      // if (response.ok) {
+      //   const result = await response.json();
+      //   // console.log("Document written with ID: ", result.id);
+      //   // console.log("Nombre del usuario: ", result.nombrecompleto);
+      //   // console.log("Fecha de Nacimiento: ", result.fechanacimiento);
 
-        const birthDate = new Date(result.fechanacimiento);
-        const today = new Date();
-        let age = today.getFullYear() - birthDate.getFullYear();
-        const monthDiff = today.getMonth() - birthDate.getMonth();
-        if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
-          age--;
-        }
+      //   const birthDate = new Date(result.fechanacimiento);
+      //   const today = new Date();
+      //   let age = today.getFullYear() - birthDate.getFullYear();
+      //   const monthDiff = today.getMonth() - birthDate.getMonth();
+      //   if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+      //     age--;
+      //   }
         // console.log(age)
 
-        if (age < 18) {
+        // if (age < 18) {
+        //   setDniError('Debes tener al menos 18 años para continuar.');
+        //   setIsSubmitting(false);
+        //   return;
+        // }
+
+         // Manejo de validaciones server-side (edad, etc.)
+      if (response.status === 422) {
+        const err = await response.json().catch(() => ({}));
+        if (err?.errorCode === 'UNDERAGE') {
           setDniError('Debes tener al menos 18 años para continuar.');
-          setIsSubmitting(false);
-          return;
+        } else if (err?.errorCode === 'AGE_UNKNOWN') {
+          setDniError('No pudimos verificar tu mayoría de edad. Intentalo nuevamente o contactanos.');
+        } else {
+          setFormError('No pudimos procesar tu solicitud por validación de edad.');
         }
-        
+        setIsSubmitting(false);
+        return;
+      }
+
+      if (!response.ok) {
+        const txt = await response.text();
+        console.error('Error:', txt);
+        setFormError('Ocurrió un problema. Intentalo nuevamente.');
+        setIsSubmitting(false);
+        return;
+      }
+
+      const result = await response.json();
+
         setNombrecompleto(result.nombrecompleto);
         setDnizustand(dni);
         setEmailzustand(email);
+        setCode(result.code);
+        setNeedsConfirm(!!result.needsConfirm);
+        setPendingId(result.id || null);
 
         try {
-          await fetch('https://sendingemail-700926948640.us-east1.run.app', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              email,
-              firstName: result.nombrecompleto.split(' ')[1]
-            })
-          });
-          // console.log('✅ Email de bienvenida enviado.');
-        } catch (error) {
-          console.error('Error al enviar el email de bienvenida:', error);
-        }
+          const isSecure = typeof window !== 'undefined' && window.location.protocol === 'https:';
+          document.cookie = `mf_code=${encodeURIComponent(result.code)}; Path=/; SameSite=Lax; ${isSecure ? 'Secure; ' : ''}Max-Age=604800`;
+          if (!result.needsConfirm) {
+            document.cookie = `mf_confirmed=true; Path=/; SameSite=Lax; ${isSecure ? 'Secure; ' : ''}Max-Age=604800`;
+          } else {
+            // nuevo flujo: asegurarse de limpiar confirmaciones anteriores
+            document.cookie = `mf_confirmed=; Path=/; SameSite=Lax; ${isSecure ? 'Secure; ' : ''}Max-Age=0`;
+          }
+        } catch {}
 
-        
-        
-        router.push('/espera');
+        router.push(`/${result.code}/espera`);
+
         gtag_report_conversion();
-      } else {
-        console.error("Error adding document: ", await response.text());
-      }
-    } catch (e) {
-      console.error("Error adding document: ", e);
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
+} catch (e) {
+console.error('Error general:', e);
+setFormError('Ocurrió un problema. Intentalo nuevamente.');
+} finally {
+setIsSubmitting(false);
+}
+};
 
-  const hasErrors = !!dni || !!email || !!phone || !!employment || !!bank;
+// Para el disabled del botón (no uses nombre confuso)
+const isButtonDisabled = !canSubmit;
+
 
   return (
     <Wrapper>
@@ -323,7 +368,8 @@ const UserForm = () => {
         />
       </div>
       <Button
-        disabled={!hasErrors || disabledSubmit || isSubmitting} // Deshabilitar el botón durante el envío del formulario
+        // disabled={!hasErrors || disabledSubmit || isSubmitting} // Deshabilitar el botón durante el envío del formulario
+        disabled={isButtonDisabled}
         backgroundColor="#BDA1EC"
         textColor="fff"
         text="¡Buscar ofertas! 💰"

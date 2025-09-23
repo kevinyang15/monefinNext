@@ -36,7 +36,7 @@ const Cards: React.FC<CardProps> = ({ name, imagen, titulo, subtitulo, texto, co
     }
   };
 
-  console.log('prueba-test', dni, name)
+  // console.log('prueba-test', dni, name)
   
   return (
     <a href={url} target="" rel="noopener noreferrer" onClick={handleCardClick} className="block border border-[#BDA1EC] rounded-2xl p-4 shadow-lg bg-white hover:shadow-xl transition-shadow duration-200 w-full mb-4">

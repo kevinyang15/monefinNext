@@ -186,7 +186,7 @@ const InnerLink = styled.span`
       <WrappedLink href="/prestamos" passHref style={{ textDecoration: 'none', width: '80%', textAlign: 'center', background: '#bea9ed', padding: '15px', borderRadius: '10px' }}><InnerLink>Buscar préstamos</InnerLink></WrappedLink>
       <Disclaimer>
 
-      Por favor, lea detenidamente los siguientes Términos y Condiciones (“Términos”) antes de utilizar www.monefin.net (“el Sitio”), operado por Pacific Creative Lab LTD (“la Compañía”, “nosotros”, “nos” o “nuestro”). La dirección registrada de la Compañía es Diamond 1, Carino Development, Hamilton Estate, Nevis, KN1201, San Cristóbal y Nieves. Teléfono: +5562995743652.
+      Por favor, lea detenidamente los siguientes Términos y Condiciones (“Términos”) antes de utilizar www.monefin.net (“el Sitio”), operado por Pacific Creative Lab LTD (“la Compañía”, “nosotros”, “nos” o “nuestro”). La dirección registrada de la Compañía es Diamond 1, Carino Development, Hamilton Estate, Nevis, KN1201, San Cristóbal y Nieves.
 
 Estos Términos se rigen e interpretan de acuerdo con las leyes de San Cristóbal y Nieves. Cualquier disputa derivada de estos Términos estará sujeta a la jurisdicción exclusiva de los tribunales de dicho país. Los datos transmitidos y cedidos en o a través del Sitio son propiedad exclusiva de Pacific Creative Lab LTD. Al utilizar el Sitio, usted acepta que cualquier información proporcionada podrá ser utilizada por la Compañía conforme a la legislación aplicable y a nuestra Política de Privacidad.
 

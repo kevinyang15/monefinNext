@@ -83,23 +83,38 @@ const Privacy = () => (
   <Wrapper>
     <TitleText>Políticas de Privacidad</TitleText>
     <Text>
-  La presente Política de Privacidad (“Política de Privacidad”) rige para el tratamiento de los datos personales que usted como usuario (“Usuario”) del sitio web, voluntariamente brinda a Pacific Creative Lab LTD (“Monefin”), al navegar por la misma y utilizar los productos, servicios y/o herramientas (“Servicios”) dispuestos para el Usuario por Monefin a través de su sitio web (el “Sitio”). Esta Política de Privacidad debe ser leída en conjunto con los respectivos términos de uso (“Términos de Uso”).
-</Text>
-<Text>
-  Al acceder al Sitio y utilizar los Servicios, el Usuario manifiesta estar consciente de esta Política de Privacidad que rige su relación con Pacific Creative Lab LTD. Monefin, operado por Pacific Creative Lab LTD, reitera su compromiso con sus Usuarios y su preocupación por la privacidad y la protección de sus datos personales. En caso de dudas sobre esta Política de Privacidad, puede contactarnos a través del correo electrónico <strong>info@monefin.net</strong>.
-</Text>
-...
-<Text>
-  6.1. El Usuario podrá entrar en contacto con Monefin por correo electrónico <strong>info@monefin.net</strong>.<br/>
-  6.2. Pacific Creative Lab LTD se reserva el derecho, a su sola discreción, de modificar, alterar o de otra manera actualizar esta Política de Privacidad en cualquier momento. Las modificaciones entrarán en vigencia desde el momento en que se indique; en su defecto, se entenderá que su aplicación es inmediata. Monefin no limitará los derechos de los Usuarios en virtud de esta Política de Privacidad sin su consentimiento explícito. Al hacer click en “ACEPTO”, el Usuario reconoce haber leído y comprendido la presente Política de Privacidad, otorgando su consentimiento para el tratamiento de los datos personales conforme a los fines detallados anteriormente.
-</Text>
-<Text>
-  <strong>Información legal de la empresa:</strong><br/>
-  Razón social: Pacific Creative Lab LTD<br/>
-  Dirección: Diamond 1, Carino Development, Hamilton Estate, Nevis, KN1201, San Cristóbal y Nieves<br/>
-  Email: info@monefin.net<br/>
-  Sitio web: https://monefin.net
-</Text>
+        La presente Política de Privacidad rige para el tratamiento de los datos personales que usted como usuario (“Usuario”) del sitio web, voluntariamente brinda a Pacific Creative Lab LTD (“Monefin”), al navegar por el mismo y utilizar los productos, servicios y/o herramientas (“Servicios”) dispuestos por Monefin a través de su sitio web (el “Sitio”). Esta Política debe leerse junto con los Términos de Uso.
+      </Text>
+      <Text>
+        Al acceder al Sitio y utilizar los Servicios, el Usuario manifiesta estar consciente de esta Política de Privacidad. Monefin, operado por Pacific Creative Lab LTD, reitera su compromiso con la privacidad y protección de los datos personales de sus usuarios. Para cualquier consulta, puede escribir a <strong>info@monefin.net</strong>.
+      </Text>
+      <Text>
+        <strong>1. Datos recopilados:</strong> Monefin no solicita ni almacena datos personales sensibles como DNI, CUIT, información bancaria o crediticia. El único dato que puede solicitarse es el correo electrónico, con el fin de enviar un newsletter informativo, previa suscripción voluntaria.
+      </Text>
+      <Text>
+        <strong>2. Finalidad del tratamiento:</strong> El único uso de los datos recolectados (correo electrónico) es el envío de comunicaciones solicitadas. No se utilizan con fines de segmentación ni son compartidos con terceros.
+      </Text>
+      <Text>
+        <strong>3. Seguridad:</strong> Los correos electrónicos son almacenados por proveedores que cumplen con estándares de seguridad como el RGPD. El usuario puede darse de baja en cualquier momento.
+      </Text>
+      <Text>
+        <strong>4. No divulgación:</strong> Monefin no vende, comparte ni cede información personal. El sitio puede navegarse de forma anónima sin registrarse.
+      </Text>
+      <Text>
+        <strong>5. Enlaces externos:</strong> Monefin contiene enlaces a sitios de terceros (bancos o financieras). No somos responsables por las políticas de privacidad ni contenido de dichos sitios.
+      </Text>
+      <Text>
+        <strong>6. Modificaciones:</strong><br />
+        6.1. El Usuario puede contactarnos por correo electrónico a <strong>info@monefin.net</strong>.<br />
+        6.2. Monefin puede modificar esta Política de Privacidad en cualquier momento. Los cambios entran en vigencia inmediatamente a menos que se indique lo contrario. No se limitarán los derechos del Usuario sin su consentimiento explícito.
+      </Text>
+      <Text>
+        <strong>Información legal de la empresa:</strong><br />
+        Razón social: Pacific Creative Lab LTD<br />
+        Dirección: Diamond 1, Carino Development, Hamilton Estate, Nevis, KN1201, San Cristóbal y Nieves<br />
+        Email: info@monefin.net<br />
+        Sitio web: https://monefin.net
+      </Text>
   <Footer />
   </Wrapper>
   </ScreenWrapper>

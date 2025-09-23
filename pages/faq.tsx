@@ -87,7 +87,7 @@ const FAQ = () => (
     <Text>Si no podés encontrar los que buscas. Envianos una consulta a <strong>info@monefin.net</strong> y te responderemos a la brevedad.</Text>
     <br />
     <h3>¿Como hago para pedir un préstamo?</h3>
-    <Text>Con base en sus datos básicos, podemos analizar el estado de su crédito por adelantado. Con base en un análisis preliminar de sus datos, le mostramos opciones basadas en su perfil de crédito y ubicación. Puede elegir una o más ofertas de bancos y compañías financieras registradas en Argentina. Después de elegir la opción más conveniente, haga clic en "Finalizar la Solicitud". Y ¡Listo! Su solicitud será enviada y recibirá un correo electrónico con información detallada.</Text>
+    <Text>Con base en sus datos básicos, podemos analizar el estado de su crédito por adelantado. Con base en un análisis preliminar de sus datos, le mostramos opciones basadas en su perfil de crédito y ubicación. Puede elegir una o más ofertas de bancos y compañías financieras registradas en Argentina. Después de elegir la opción más conveniente, haga clic en &quot;Finalizar la Solicitud&quot;. Y ¡Listo! Su solicitud será enviada y recibirá un correo electrónico con información detallada.</Text>
     <br />
     <h3>¿Qué pasa con mis datos?</h3>
     <Text>Clink gestiona los datos de sus usuarios de acuerdo con la normativa de protección de datos de carácter personal. Para más detalles sobre el uso de esta información, le recomendamos que lea nuestros términos y condiciones.</Text>

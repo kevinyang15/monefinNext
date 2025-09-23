@@ -1,6 +1,55 @@
 {
-  "sortedMiddleware": [],
-  "clientInfo": [],
+  "version": 3,
   "middleware": {},
-  "version": 1
+  "functions": {
+    "/api/session/set-confirmed": {
+      "files": [
+        "server/edge-runtime-webpack.js",
+        "server/edge-chunks/876.js",
+        "server/pages/api/session/set-confirmed.js"
+      ],
+      "name": "pages/api/session/set-confirmed",
+      "page": "/api/session/set-confirmed",
+      "matchers": [
+        {
+          "regexp": "^/api/session/set\\-confirmed$",
+          "originalSource": "/api/session/set-confirmed"
+        }
+      ],
+      "wasm": [],
+      "assets": [],
+      "env": {
+        "__NEXT_BUILD_ID": "8L4SM3Om1Yb0ArWMpCIUP",
+        "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "vCQyaNKgPynXn/EZ1NL8DpsNJlP/m/lG+CzGcWXIz10=",
+        "__NEXT_PREVIEW_MODE_ID": "82e28c6d89687edfbf7463bf0ea099bf",
+        "__NEXT_PREVIEW_MODE_SIGNING_KEY": "a1c9765a19e915089b8d967caf158e2ba7d81e27698ddce3111314495bfbd02a",
+        "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "af8acc2661cf4c4fe78658beefc6290e381f6d31f0ab12946a75e3ee330afa47"
+      }
+    },
+    "/api/session/set-code": {
+      "files": [
+        "server/edge-runtime-webpack.js",
+        "server/edge-chunks/876.js",
+        "server/pages/api/session/set-code.js"
+      ],
+      "name": "pages/api/session/set-code",
+      "page": "/api/session/set-code",
+      "matchers": [
+        {
+          "regexp": "^/api/session/set\\-code$",
+          "originalSource": "/api/session/set-code"
+        }
+      ],
+      "wasm": [],
+      "assets": [],
+      "env": {
+        "__NEXT_BUILD_ID": "8L4SM3Om1Yb0ArWMpCIUP",
+        "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "vCQyaNKgPynXn/EZ1NL8DpsNJlP/m/lG+CzGcWXIz10=",
+        "__NEXT_PREVIEW_MODE_ID": "82e28c6d89687edfbf7463bf0ea099bf",
+        "__NEXT_PREVIEW_MODE_SIGNING_KEY": "a1c9765a19e915089b8d967caf158e2ba7d81e27698ddce3111314495bfbd02a",
+        "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "af8acc2661cf4c4fe78658beefc6290e381f6d31f0ab12946a75e3ee330afa47"
+      }
+    }
+  },
+  "sortedMiddleware": []
 }

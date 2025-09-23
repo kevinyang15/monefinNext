@@ -1,7 +1,21 @@
 {
   "/_app": "pages/_app.js",
+  "/404": "pages/404.html",
+  "/confirmacion": "pages/confirmacion.html",
+  "/contacto": "pages/contacto.html",
+  "/faq": "pages/faq.html",
+  "/espera": "pages/espera.html",
+  "/": "pages/index.html",
+  "/nosotros": "pages/nosotros.html",
+  "/ofertas": "pages/ofertas.html",
+  "/prestamos": "pages/prestamos.html",
+  "/privacidad": "pages/privacidad.html",
+  "/reportWebVitals": "pages/reportWebVitals.html",
+  "/terminos": "pages/terminos.html",
+  "/[code]/espera": "pages/[code]/espera.js",
   "/_document": "pages/_document.js",
   "/_error": "pages/_error.js",
-  "/": "pages/index.js",
-  "/prestamos": "pages/prestamos.js"
+  "/[code]/ofertas": "pages/[code]/ofertas.js",
+  "/api/session/set-confirmed": "pages/api/session/set-confirmed.js",
+  "/api/session/set-code": "pages/api/session/set-code.js"
 }

@@ -1,0 +1,160 @@
+{
+  "version": 3,
+  "pages404": true,
+  "caseSensitive": false,
+  "basePath": "",
+  "redirects": [
+    {
+      "source": "/:file((?!\\.well-known(?:/.*)?)(?:[^/]+/)*[^/]+\\.\\w+)/",
+      "destination": "/:file",
+      "internal": true,
+      "missing": [
+        {
+          "type": "header",
+          "key": "x-nextjs-data"
+        }
+      ],
+      "statusCode": 308,
+      "regex": "^(?:/((?!\\.well-known(?:/.*)?)(?:[^/]+/)*[^/]+\\.\\w+))/$"
+    },
+    {
+      "source": "/:notfile((?!\\.well-known(?:/.*)?)(?:[^/]+/)*[^/\\.]+)",
+      "destination": "/:notfile/",
+      "internal": true,
+      "statusCode": 308,
+      "regex": "^(?:/((?!\\.well-known(?:/.*)?)(?:[^/]+/)*[^/\\.]+))$"
+    }
+  ],
+  "headers": [],
+  "rewrites": {
+    "beforeFiles": [],
+    "afterFiles": [],
+    "fallback": []
+  },
+  "dynamicRoutes": [
+    {
+      "page": "/[code]/espera",
+      "regex": "^/([^/]+?)/espera(?:/)?$",
+      "routeKeys": {
+        "nxtPcode": "nxtPcode"
+      },
+      "namedRegex": "^/(?<nxtPcode>[^/]+?)/espera(?:/)?$"
+    },
+    {
+      "page": "/[code]/ofertas",
+      "regex": "^/([^/]+?)/ofertas(?:/)?$",
+      "routeKeys": {
+        "nxtPcode": "nxtPcode"
+      },
+      "namedRegex": "^/(?<nxtPcode>[^/]+?)/ofertas(?:/)?$"
+    }
+  ],
+  "staticRoutes": [
+    {
+      "page": "/",
+      "regex": "^/(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/(?:/)?$"
+    },
+    {
+      "page": "/404",
+      "regex": "^/404(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/404(?:/)?$"
+    },
+    {
+      "page": "/confirmacion",
+      "regex": "^/confirmacion(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/confirmacion(?:/)?$"
+    },
+    {
+      "page": "/contacto",
+      "regex": "^/contacto(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/contacto(?:/)?$"
+    },
+    {
+      "page": "/espera",
+      "regex": "^/espera(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/espera(?:/)?$"
+    },
+    {
+      "page": "/faq",
+      "regex": "^/faq(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/faq(?:/)?$"
+    },
+    {
+      "page": "/nosotros",
+      "regex": "^/nosotros(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/nosotros(?:/)?$"
+    },
+    {
+      "page": "/ofertas",
+      "regex": "^/ofertas(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/ofertas(?:/)?$"
+    },
+    {
+      "page": "/prestamos",
+      "regex": "^/prestamos(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/prestamos(?:/)?$"
+    },
+    {
+      "page": "/privacidad",
+      "regex": "^/privacidad(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/privacidad(?:/)?$"
+    },
+    {
+      "page": "/reportWebVitals",
+      "regex": "^/reportWebVitals(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/reportWebVitals(?:/)?$"
+    },
+    {
+      "page": "/terminos",
+      "regex": "^/terminos(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/terminos(?:/)?$"
+    }
+  ],
+  "dataRoutes": [
+    {
+      "page": "/[code]/espera",
+      "routeKeys": {
+        "nxtPcode": "nxtPcode"
+      },
+      "dataRouteRegex": "^/_next/data/8L4SM3Om1Yb0ArWMpCIUP/([^/]+?)/espera\\.json$",
+      "namedDataRouteRegex": "^/_next/data/8L4SM3Om1Yb0ArWMpCIUP/(?<nxtPcode>[^/]+?)/espera\\.json$"
+    },
+    {
+      "page": "/[code]/ofertas",
+      "routeKeys": {
+        "nxtPcode": "nxtPcode"
+      },
+      "dataRouteRegex": "^/_next/data/8L4SM3Om1Yb0ArWMpCIUP/([^/]+?)/ofertas\\.json$",
+      "namedDataRouteRegex": "^/_next/data/8L4SM3Om1Yb0ArWMpCIUP/(?<nxtPcode>[^/]+?)/ofertas\\.json$"
+    }
+  ],
+  "rsc": {
+    "header": "rsc",
+    "varyHeader": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+    "prefetchHeader": "next-router-prefetch",
+    "didPostponeHeader": "x-nextjs-postponed",
+    "contentTypeHeader": "text/x-component",
+    "suffix": ".rsc",
+    "prefetchSuffix": ".prefetch.rsc",
+    "prefetchSegmentHeader": "next-router-segment-prefetch",
+    "prefetchSegmentSuffix": ".segment.rsc",
+    "prefetchSegmentDirSuffix": ".segments"
+  },
+  "rewriteHeaders": {
+    "pathHeader": "x-nextjs-rewritten-path",
+    "queryHeader": "x-nextjs-rewritten-query"
+  }
+}

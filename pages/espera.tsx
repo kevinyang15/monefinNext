@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import styled from 'styled-components';
 import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
 import { Helmet } from 'react-helmet';
 import LogoImg from '../public/assets/logo.svg';
 import WaitImg from '../public/assets/loading-transaction.json';
+import EmailImg from '../public/assets/email.json';
 
 import GreenCheck from '../public/assets/check-green.svg';
 import Item from '../components/Item';
@@ -12,6 +13,7 @@ import Spacer from '../components/Spacer';
 import { sleep } from '../utils/utils';
 
 import useFormStore from "../state/useFormStore";
+
 
 const Lottie = dynamic(() => import('lottie-react'), { ssr: false });
 
@@ -80,18 +82,30 @@ const ScreenWrapper = styled.div`
 
 const Wait = () => {
   const router = useRouter();
+  const codeFromStore = useFormStore((s) => s.code);
+  const needsConfirm = useFormStore((s) => s.needsConfirm);
+  const setNeedsConfirm = useFormStore((s) => s.setNeedsConfirm);
+  const setCodeStore = useFormStore((s) => s.setCode);
+  const pendingId = useFormStore((s) => s.pendingId);
+  const email = useFormStore((s) => s.email);
+  const codeFromUrl = router.query.code as string;
+  const code = codeFromUrl || codeFromStore;
   const webUrl = typeof window !== 'undefined' 
   ? `${window.location.origin}${router.route}` : '';
   const logoUrl = typeof window !== 'undefined' 
   ? `${window.location.origin}${LogoImg.src}` 
   : '';
   const [waitOver, setWaitOver] = useState<boolean>(false);
+  const [resendAt, setResendAt] = useState<number>(0);
+  const [resending, setResending] = useState<boolean>(false);
+  const [resendCount, setResendCount] = useState<number>(0);
+  const [remaining, setRemaining] = useState<number>(0);
+  const canResend = useMemo(() => Date.now() >= resendAt, [resendAt]);
   const nombrecompleto = useFormStore((state) => state.nombrecompleto);
 
   const goToRejected = () => {
-    if (router.pathname === '/espera') {
-      router.push('/ofertas');
-    }
+    if (code) router.push(`/${code}/ofertas`);
+    else router.push('/prestamos'); // fallback si falta code
   }
 
   const formatNombreCompleto = (nombre: string) => {
@@ -103,16 +117,119 @@ const Wait = () => {
   useEffect(() => {
     window.scrollTo({ top: 0 });
 
-    sleep(5000).then(() => {
-      setWaitOver(true);
-    })
+    // Si la cookie mf_confirmed existe, forzar modo no-confirm y continuar flujo
+    try {
+      const cookies = typeof document !== 'undefined' ? document.cookie : '';
+      const confirmed = /(?:^|; )mf_confirmed=true(?:;|$)/.test(cookies);
+      if (confirmed && needsConfirm) {
+        setNeedsConfirm(false);
+      }
+      // si no hay code en store pero sí en cookie, recuperarlo
+      if (!codeFromStore) {
+        const match = cookies.match(/(?:^|; )mf_code=([^;]+)/);
+        const codeFromCookie = match ? decodeURIComponent(match[1]) : '';
+        if (codeFromCookie) setCodeStore(codeFromCookie);
+      }
+    } catch {}
+
+    const run = async () => {
+      // cargar contador de reintentos y cooldown previos (por pestaña)
+      try {
+        const idKey = String(pendingId || email || 'anon');
+        const storedCount = Number(localStorage.getItem(`mf_resendCount_${idKey}`) || '0');
+        if (Number.isFinite(storedCount) && storedCount >= 0) setResendCount(storedCount);
+        const storedAt = Number(localStorage.getItem(`mf_resendAllowedAt_${idKey}`) || '0');
+        if (Number.isFinite(storedAt) && storedAt > Date.now()) setResendAt(storedAt);
+      } catch {}
+
+      if (!needsConfirm) {
+        await sleep(5000);
+        setWaitOver(true);
+      } else if (resendAt === 0) {
+        // primer cooldown de 30s (email se envió automáticamente al iniciar el flujo)
+        setResendAt(Date.now() + 30000);
+      }
+    };
+    run();
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [needsConfirm]);
+
+  // Countdown del cooldown del botón
+  useEffect(() => {
+    if (resendAt <= Date.now()) {
+      setRemaining(0);
+      return;
+    }
+    const id = setInterval(() => {
+      const secs = Math.max(0, Math.ceil((resendAt - Date.now()) / 1000));
+      setRemaining(secs);
+      if (secs <= 0) clearInterval(id);
+    }, 250);
+    return () => clearInterval(id);
+  }, [resendAt]);
 
   useEffect(() => {
     if (waitOver) goToRejected();
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [waitOver]);
+
+  const handleResend = async () => {
+    if (!pendingId || !email || !code) return;
+    if (resending) return;
+    if (!canResend) return;
+    if (resendCount >= 2) return;
+    try {
+      setResending(true);
+  
+      const r = await fetch('https://resendconfirmationemail-700926948640.europe-west1.run.app', {
+        method: 'POST',
+        headers: { 'Content-Type':'application/json' },
+        body: JSON.stringify({
+          pendingId,         // preferible porque es exacto
+          // email,          // alternativo si no tenés pendingId
+          code               // MUY IMPORTANTE para construir el confirmUrl
+        })
+      });
+  
+      const data = await r.json().catch(() => ({}));
+      if (!r.ok) {
+        // errores de rate limit
+        if (r.status === 429 && data?.retryAfterSeconds) {
+          const next = Date.now() + data.retryAfterSeconds * 1000;
+          setResendAt(next);
+          try { localStorage.setItem(`mf_resendAllowedAt_${String(pendingId || email || 'anon')}`, String(next)); } catch {}
+          return;
+        }
+        // fallback generic
+        {
+          const next = Date.now() + 30000;
+          setResendAt(next);
+          try { localStorage.setItem(`mf_resendAllowedAt_${String(pendingId || email || 'anon')}`, String(next)); } catch {}
+        }
+        return;
+      }
+  
+      // éxito -> arrancá nuevo cooldown
+      const nextAt = data?.nextAllowedAt ? new Date(data.nextAllowedAt).getTime() : (Date.now() + 30000);
+      setResendAt(nextAt);
+      try { localStorage.setItem(`mf_resendAllowedAt_${String(pendingId || email || 'anon')}`, String(nextAt)); } catch {}
+
+      // incrementar contador de reintentos (máx 2)
+      setResendCount((prev) => {
+        const nextCount = Math.min(2, prev + 1);
+        try { localStorage.setItem(`mf_resendCount_${String(pendingId || email || 'anon')}`, String(nextCount)); } catch {}
+        return nextCount;
+      });
+  
+    } catch (e) {
+      // si falla, igual bloqueamos por 30s para evitar spam del botón
+      const next = Date.now() + 30000;
+      setResendAt(next);
+      try { localStorage.setItem(`mf_resendAllowedAt_${String(pendingId || email || 'anon')}`, String(next)); } catch {}
+    } finally {
+      setResending(false);
+    }
+  };
 
   return (
     <ScreenWrapper>
@@ -144,10 +261,36 @@ const Wait = () => {
        <TitleText style={{ fontWeight:'800' }}>  
          {`Hola 😁, ${nombrecompleto ? formatNombreCompleto(nombrecompleto) : ''}`}
        </TitleText>
-       <TitleText style={{ fontWeight:'700' }}>Buscando ofertas...</TitleText>
-      <Lottie animationData={WaitImg} height={150} width={150} style={{ width:'200px' }}/> 
-      <MainText>¡Gracias por elegirnos!</MainText>
-      <Subtext>¡Estamos buscando las mejores ofertas! Faltan <strong>algunos segundos...</strong></Subtext>
+      {needsConfirm ? (
+        <>
+          <TitleText style={{ fontWeight:'700', textAlign:'center' }}>Confirmá tu email para continuar</TitleText>
+          <Lottie animationData={EmailImg} height={150} width={150} style={{ width:'200px' }}/> 
+          <MainText>Te enviamos un correo con el enlace de confirmación.</MainText>
+          <button
+            onClick={handleResend}
+            disabled={!canResend || resending || resendCount >= 2}
+            className="px-4 py-2 rounded-md"
+            style={{
+              background: (!canResend || resending || resendCount >= 2) ? '#d1c6f2' : '#BDA1EC',
+              color:'#232323', fontWeight:600, minWidth: 180
+            }}
+            >
+            {resending ? 'Reenviando…' : (resendCount >= 2 ? 'Intentos agotados' : (canResend ? 'Reenviar email' : `Esperá ${remaining}s`))}
+          </button>
+          <Subtext style={{ textAlign:'center', fontSize:'12px' }}>
+            {resendCount < 2
+              ? `Podrás reenviar ${2 - resendCount} vez${(2 - resendCount) === 1 ? '' : 'es'} más. ${canResend ? '' : `Disponible en ${remaining}s.`}`
+              : 'Ya utilizaste el máximo de reenvíos.'}
+          </Subtext>
+        </>
+      ) : (
+        <>
+          <TitleText style={{ fontWeight:'700' }}>Buscando ofertas...</TitleText>
+          <Lottie animationData={WaitImg} height={150} width={150} style={{ width:'200px' }}/> 
+          <MainText>¡Gracias por elegirnos!</MainText>
+          <Subtext>¡Estamos buscando las mejores ofertas! Faltan <strong>algunos segundos...</strong></Subtext>
+        </>
+      )}
       <div>
       <Item
         icon={GreenCheck.src}
