@@ -22,6 +22,7 @@
     "framer-motion": "^6.3.3",
     "imagemin-mozjpeg": "^10.0.0",
     "lottie-react": "^2.4.0",
+    "nodemailer": "^6.9.13",
     "next": "12.1.6",
     "next-compose-plugins": "^2.2.1",
     "next-optimized-images": "^2.6.2",
@@ -38,6 +39,7 @@
     "react-spinners": "^0.11.0",
     "react-transition-group": "^4.4.2",
     "styled-components": "^5.3.6",
+    "jsonwebtoken": "^9.0.2",
     "typescript": "^4.6.4",
     "web-vitals": "^2.1.4",
     "zustand": "^4.5.2"

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import type { GetServerSideProps } from 'next';
 import styled from 'styled-components';
 
 import Footer from '../containers/Footer';
@@ -12,6 +13,7 @@ import Cards from '../components/Cards';
 import data from '../utils/data.json';
 
 import useFormStore from "../state/useFormStore";
+declare const Cookies: any;
 
 import { useRouter } from 'next/router';
 import { Helmet } from 'react-helmet';
@@ -140,6 +142,16 @@ const Results = () => {
   // }
 
   const [cards, setCards] = useState<Card[]>([]);
+  
+  useEffect(() => {
+    try {
+      const verified = (typeof Cookies !== 'undefined') ? Cookies.get('monefin_verified') : null;
+      if (!verified) {
+        router.replace('/verifica-email');
+        return;
+      }
+    } catch(_) {}
+  }, [router]);
 
   useEffect(() => {
     setCards(data);
@@ -204,3 +216,15 @@ const Results = () => {
 };
 
 export default Results;
+
+export const getServerSideProps: GetServerSideProps = async ({ req }) => {
+  const cookie = req.headers.cookie || '';
+  const isVerified = /(?:^|;\s*)monefin_verified=1(?:;|$)/.test(cookie);
+  if (!isVerified) {
+    return {
+      redirect: { destination: '/verifica-email', permanent: false },
+      props: {},
+    };
+  }
+  return { props: {} };
+};

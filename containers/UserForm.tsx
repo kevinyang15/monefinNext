@@ -226,7 +226,7 @@ const UserForm = () => {
         setEmailzustand(email);
 
         try {
-          await fetch('https://sendingemail-700926948640.us-east1.run.app', {
+          await fetch('/api/sendVerification', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
@@ -234,14 +234,11 @@ const UserForm = () => {
               firstName: result.nombrecompleto.split(' ')[1]
             })
           });
-          // console.log('✅ Email de bienvenida enviado.');
         } catch (error) {
-          console.error('Error al enviar el email de bienvenida:', error);
+          // ignore sending error to not block UX
         }
 
-        
-        
-        router.push('/espera');
+        router.push('/verifica-email');
         gtag_report_conversion();
       } else {
         console.error("Error adding document: ", await response.text());
