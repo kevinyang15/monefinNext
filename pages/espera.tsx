@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import type { GetServerSideProps } from 'next';
 import styled from 'styled-components';
 import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
@@ -12,6 +13,7 @@ import Spacer from '../components/Spacer';
 import { sleep } from '../utils/utils';
 
 import useFormStore from "../state/useFormStore";
+declare const Cookies: any;
 
 const Lottie = dynamic(() => import('lottie-react'), { ssr: false });
 
@@ -87,6 +89,15 @@ const Wait = () => {
   : '';
   const [waitOver, setWaitOver] = useState<boolean>(false);
   const nombrecompleto = useFormStore((state) => state.nombrecompleto);
+  
+  useEffect(() => {
+    try {
+      const verified = (typeof Cookies !== 'undefined') ? Cookies.get('monefin_verified') : null;
+      if (!verified) {
+        router.replace('/verifica-email');
+      }
+    } catch(_) {}
+  }, [router]);
 
   const goToRejected = () => {
     if (router.pathname === '/espera') {
@@ -170,3 +181,15 @@ const Wait = () => {
 };
 
 export default Wait;
+
+export const getServerSideProps: GetServerSideProps = async ({ req }) => {
+  const cookie = req.headers.cookie || '';
+  const isVerified = /(?:^|;\s*)monefin_verified=1(?:;|$)/.test(cookie);
+  if (!isVerified) {
+    return {
+      redirect: { destination: '/verifica-email', permanent: false },
+      props: {},
+    };
+  }
+  return { props: {} };
+};
