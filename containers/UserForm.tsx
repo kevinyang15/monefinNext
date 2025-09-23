@@ -225,23 +225,44 @@ const UserForm = () => {
         setDnizustand(dni);
         setEmailzustand(email);
 
+        // Crear sesión y token
+        const sessionRes = await fetch('/api/session/create', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            dni,
+            email,
+            phone,
+            employment,
+            bank,
+            nombrecompleto: result.nombrecompleto
+          })
+        });
+        if (!sessionRes.ok) {
+          console.error('No se pudo crear la sesión');
+          setIsSubmitting(false);
+          return;
+        }
+        const { code, token } = await sessionRes.json();
+
+        // Enviar email con link de verificación que incluye el token
         try {
+          const origin = window.location.origin;
+          const verifyUrl = `${origin}/verify?token=${encodeURIComponent(token)}`;
           await fetch('https://sendingemail-700926948640.us-east1.run.app', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
               email,
-              firstName: result.nombrecompleto.split(' ')[1]
+              firstName: result.nombrecompleto.split(' ')[1],
+              verifyUrl
             })
           });
-          // console.log('✅ Email de bienvenida enviado.');
         } catch (error) {
-          console.error('Error al enviar el email de bienvenida:', error);
+          console.error('Error al enviar el email de verificación:', error);
         }
 
-        
-        
-        router.push('/espera');
+        router.push('/confirmacionMail');
         gtag_report_conversion();
       } else {
         console.error("Error adding document: ", await response.text());
