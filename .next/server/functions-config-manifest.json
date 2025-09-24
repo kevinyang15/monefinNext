@@ -1,7 +1,0 @@
-{
-  "version": 1,
-  "functions": {
-    "/api/session/set-confirmed": {},
-    "/api/session/set-code": {}
-  }
-}

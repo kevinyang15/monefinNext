@@ -1,1 +1,0 @@
-(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[906],{6036:(_,e,u)=>{(window.__NEXT_P=window.__NEXT_P||[]).push(["/[code]/espera",function(){return u(7122)}])},7122:(_,e,u)=>{"use strict";u.r(e),u.d(e,{__N_SSP:()=>n,default:()=>s.default});var s=u(9166),n=!0}},_=>{_.O(0,[451,166,636,593,792],()=>_(_.s=6036)),_N_E=_.O()}]);

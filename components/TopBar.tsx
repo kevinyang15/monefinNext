@@ -49,6 +49,7 @@ const CustomLink = styled.a`
   background: none;
   cursor: pointer;
   text-decoration: none;
+  padding-right: 15px;
 
   @media (orientation: portrait) and (max-width: 767px) {
     display: none;
@@ -73,10 +74,10 @@ const TopBar = () => {
              <img  className='logoHome' src={LogoImg.src} alt="monefin" width={200}  height={60} onClick={onClickLogo}/>
             )}      
       </div>
-      <div className='menuMobile'>
+      <div className='menuMobile gap-6'>
         <CustomLink href="/prestamos">Buscar</CustomLink>
         <CustomLink href="/nosotros">¿Qué hacemos?</CustomLink>
-        <CustomLink href="/faq">FAQ</CustomLink>
+        <CustomLink href="/faq">FAQs</CustomLink>
         <CustomLink href="https://blog.monefin.net" target="_blank" rel="noopener noreferrer">Blog</CustomLink>
         <CustomLink href="/contacto">Contacto</CustomLink>
         {/* <Link href="/terminos" passHref>
