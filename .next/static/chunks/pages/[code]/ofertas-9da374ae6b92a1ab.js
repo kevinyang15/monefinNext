@@ -1,0 +1,1 @@
+(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[442],{4678:(_,e,u)=>{"use strict";u.r(e),u.d(e,{__N_SSP:()=>n,default:()=>s.default});var s=u(8217),n=!0},8040:(_,e,u)=>{(window.__NEXT_P=window.__NEXT_P||[]).push(["/[code]/ofertas",function(){return u(4678)}])}},_=>{_.O(0,[230,176,217,636,593,792],()=>_(_.s=8040)),_N_E=_.O()}]);

@@ -38,10 +38,11 @@ const LandingPage: React.FC = () => {
               recomendaciones seleccionadas. Encontrá Préstamos y/o Productos
               Financieros en segundos! Sin vueltas y muy fácil.
             </p>
-            <Link href="/prestamos" passHref>
-              <div className="bg-[#b7a2e6] text-[#232323] py-4 px-6 text-lg font-bold rounded-lg shadow-lg hover:bg-[#ff814e] w-fit">
-                Buscar préstamos 💰
-              </div>
+            <Link
+              href="/prestamos"
+              className="inline-block bg-[#b7a2e6] text-[#232323] py-4 px-6 text-lg font-bold rounded-lg shadow-lg hover:bg-[#ff814e] w-fit"
+            >
+              Buscar préstamos 💰
             </Link>
           </div>
         </div>
@@ -66,58 +67,63 @@ const LandingPage: React.FC = () => {
 
       {/* Categories Section */}
       <div className="flex md:flex-row flex-col justify-center items-center md:gap-6 gap-0 md:py-8 py-0 bg-white">
-        <Link href="/prestamos" passHref>
-          <div className="bg-[#232323] text-[#232323] md:py-1 md:px-1 py-0 px-0 text-lg font-bold md:rounded-lg rounded-none shadow-lg hover:bg-[#ff814e] md:w-auto w-full">
-            <div className="text-center bg-[#e1d0bc] md:rounded-lg rounded-none md:w-52 md:h-52 w-full h-52 align-middle flex flex-col justify-center shadow-lg">
-              <div className="text-3xl px-5 mb-2 flex justify-center">
-                <img src={CardIcon.src} className="" width={100} height={100} alt="" />
-              </div>
-              <p className="font-bold text-[#232323]">Tarjetas de Crédito</p>
+        <Link
+          href="/prestamos"
+          className="bg-[#232323] text-[#232323] md:py-1 md:px-1 py-0 px-0 text-lg font-bold md:rounded-lg rounded-none shadow-lg hover:bg-[#ff814e] md:w-auto w-full"
+        >
+          <div className="text-center bg-[#e1d0bc] md:rounded-lg rounded-none md:w-52 md:h-52 w-screen h-52 align-middle flex flex-col justify-center shadow-lg">
+            <div className="text-3xl px-5 mb-2 flex justify-center">
+              <img src={CardIcon.src} className="" width={100} height={100} alt="" />
             </div>
+            <p className="font-bold text-[#232323]">Tarjetas de Crédito</p>
           </div>
         </Link>
 
-        <Link href="/prestamos" passHref>
-          <div className="bg-[#232323] text-[#232323] md:py-1 md:px-1 py-0 px-0 text-lg font-bold md:rounded-lg rounded-none shadow-lg hover:bg-[#ff814e] md:w-auto w-full">
-            <div className="text-center bg-[#bda1ec] md:rounded-lg rounded-none md:w-52 md:h-52 w-full h-52 align-middle flex flex-col justify-center shadow-lg">
-              <div className="text-3xl mb-2 flex justify-center">
-                <img src={LoanIcon.src} className="w-24 h-24" width={100} height={100} alt="" />
-              </div>
-              <p className="font-bold text-[#232323]">Préstamos Personales</p>
+        <Link
+          href="/prestamos"
+          className="bg-[#232323] text-[#232323] md:py-1 md:px-1 py-0 px-0 text-lg font-bold md:rounded-lg rounded-none shadow-lg hover:bg-[#ff814e] md:w-auto w-full"
+        >
+          <div className="text-center bg-[#bda1ec] md:rounded-lg rounded-none md:w-52 md:h-52 w-screen h-52 align-middle flex flex-col justify-center shadow-lg">
+            <div className="text-3xl mb-2 flex justify-center">
+              <img src={LoanIcon.src} className="w-24 h-24" width={100} height={100} alt="" />
             </div>
+            <p className="font-bold text-[#232323]">Préstamos Personales</p>
           </div>
         </Link>
 
-        <Link href="/prestamos" passHref>
-          <div className="bg-[#232323] text-[#232323] md:py-1 md:px-1 py-0 px-0 text-lg font-bold md:rounded-lg rounded-none shadow-lg hover:bg-[#ff814e] md:w-auto w-full">
-            <div className="text-center bg-[#ece9da] md:rounded-lg rounded-none md:w-52 md:h-52 w-full h-52 align-middle flex flex-col justify-center shadow-lg">
-              <div className="text-3xl mb-2 flex justify-center">
-                <img src={HipoIcon.src} className="w-24 h-24" width={100} height={100} alt="" />
-              </div>
-              <p className="font-bold text-[#232323]">Hipotecas</p>
+        <Link
+          href="/prestamos"
+          className="bg-[#232323] text-[#232323] md:py-1 md:px-1 py-0 px-0 text-lg font-bold md:rounded-lg rounded-none shadow-lg hover:bg-[#ff814e] md:w-auto w-full"
+        >
+          <div className="text-center bg-[#ece9da] md:rounded-lg rounded-none md:w-52 md:h-52 w-screen h-52 align-middle flex flex-col justify-center shadow-lg">
+            <div className="text-3xl mb-2 flex justify-center">
+              <img src={HipoIcon.src} className="w-24 h-24" width={100} height={100} alt="" />
             </div>
+            <p className="font-bold text-[#232323]">Hipotecas</p>
           </div>
         </Link>
 
-        <Link href="/prestamos" passHref>
-          <div className="bg-[#232323] text-[#232323] md:py-1 md:px-1 py-0 px-0 text-lg font-bold md:rounded-lg rounded-none shadow-lg hover:bg-[#ff814e] md:w-auto w-full">
-            <div className="text-center bg-[#ff814e] md:rounded-lg rounded-none md:w-52 md:h-52 w-full h-52 align-middle flex flex-col justify-center shadow-lg">
-              <div className="text-3xl mb-2 flex justify-center">
-                <img src={CarIcon.src} className="w-24 h-24" width={100} height={100} alt="" />
-              </div>
-              <p className="font-bold text-[#232323]">Préstamos para Autos</p>
+        <Link
+          href="/prestamos"
+          className="bg-[#232323] text-[#232323] md:py-1 md:px-1 py-0 px-0 text-lg font-bold md:rounded-lg rounded-none shadow-lg hover:bg-[#ff814e] md:w-auto w-full"
+        >
+          <div className="text-center bg-[#ff814e] md:rounded-lg rounded-none md:w-52 md:h-52 w-screen h-52 align-middle flex flex-col justify-center shadow-lg">
+            <div className="text-3xl mb-2 flex justify-center">
+              <img src={CarIcon.src} className="w-24 h-24" width={100} height={100} alt="" />
             </div>
+            <p className="font-bold text-[#232323]">Préstamos para Autos</p>
           </div>
         </Link>
 
-        <Link href="/prestamos" passHref>
-          <div className="bg-[#232323] text-[#232323] md:py-1 md:px-1 py-0 px-0 text-lg font-bold md:rounded-lg rounded-none shadow-lg hover:bg-[#ff814e] md:w-auto w-full">
-            <div className="text-center bg-[#a2eac7] md:rounded-lg rounded-none md:w-52 md:h-52 w-full h-52 align-middle flex flex-col justify-center shadow-lg">
-              <div className="text-3xl mb-2 flex justify-center">
-                <img src={BusinessIcon.src} className="w-24 h-24" width={100} height={100} alt="" />
-              </div>
-              <p className="font-bold text-[#232323]">Préstamos para Negocios</p>
+        <Link
+          href="/prestamos"
+          className="bg-[#232323] text-[#232323] md:py-1 md:px-1 py-0 px-0 text-lg font-bold md:rounded-lg rounded-none shadow-lg hover:bg-[#ff814e] md:w-auto w-full"
+        >
+          <div className="text-center bg-[#a2eac7] md:rounded-lg rounded-none md:w-52 md:h-52 w-screen h-52 align-middle flex flex-col justify-center shadow-lg">
+            <div className="text-3xl mb-2 flex justify-center">
+              <img src={BusinessIcon.src} className="w-24 h-24" width={100} height={100} alt="" />
             </div>
+            <p className="font-bold text-[#232323]">Préstamos para Negocios</p>
           </div>
         </Link>
       </div>
@@ -134,10 +140,11 @@ const LandingPage: React.FC = () => {
             Podés mejorar tu historial crediticio en poco tiempo con nuestro
             programa especializado en el manejo de crédito.
           </p>
-          <Link href="/prestamos" passHref>
-            <div className="bg-[#b7a2e6] text-[#232323] py-4 px-6 text-lg font-bold rounded-lg shadow-lg hover:bg-[#ff814e]">
-              Empezar ahora 🚀
-            </div>
+          <Link
+            href="/prestamos"
+            className="inline-block bg-[#b7a2e6] text-[#232323] py-4 px-6 text-lg font-bold rounded-lg shadow-lg hover:bg-[#ff814e]"
+          >
+            Empezar ahora 🚀
           </Link>
         </div>
         <div className="bg-white p-10 rounded-lg shadow-lg max-w-xs text-center">
@@ -148,10 +155,11 @@ const LandingPage: React.FC = () => {
             Monefin te conecta con el apoyo del gobierno y opciones de alivio de
             deuda personalizadas.
           </p>
-          <Link href="/prestamos" passHref>
-            <div className="bg-[#b7a2e6] text-[#232323] py-4 px-6 text-lg font-bold rounded-lg shadow-lg hover:bg-[#ff814e]">
-              Saber cómo 💸
-            </div>
+          <Link
+            href="/prestamos"
+            className="inline-block bg-[#b7a2e6] text-[#232323] py-4 px-6 text-lg font-bold rounded-lg shadow-lg hover:bg-[#ff814e]"
+          >
+            Saber cómo 💸
           </Link>
         </div>
       </div>
@@ -202,15 +210,17 @@ const LandingPage: React.FC = () => {
             avanzando financieramente.
           </p>
           <div className="flex justify-center text-left gap-4 mb-8 md:px-0 px-5">
-            <Link href="#" passHref>
-              <div className="bg-[#b7a2e6] text-[#232323] py-1 px-1 text-lg font-bold rounded-lg shadow-lg hover:bg-[#ff814e]">
-                <img  src={AppleStore.src} alt="" width={200} />
-              </div>
+            <Link
+              href="#"
+              className="bg-[#b7a2e6] text-[#232323] py-1 px-1 text-lg font-bold rounded-lg shadow-lg hover:bg-[#ff814e]"
+            >
+              <img  src={AppleStore.src} alt="" width={200} />
             </Link>
-            <Link href="#" passHref>
-              <div className="bg-[#b7a2e6] text-[#232323] py-1 px-1 text-lg font-bold rounded-lg shadow-lg hover:bg-[#ff814e]">
-                <img src={GoogleStore.src} alt="" width={200} />
-              </div>
+            <Link
+              href="#"
+              className="bg-[#b7a2e6] text-[#232323] py-1 px-1 text-lg font-bold rounded-lg shadow-lg hover:bg-[#ff814e]"
+            >
+              <img src={GoogleStore.src} alt="" width={200} />
             </Link>
           </div>
         </div>
@@ -244,11 +254,9 @@ const LandingPage: React.FC = () => {
             </p>
             <Link
               href="https://blog.monefin.net/guia-completa-para-salir-del-veraz-solo-con-tu-dni-y-gratis/"
+              className="inline-block bg-[#b7a2e6] text-[#232323] py-2 my-5 px-3 text-base font-semibold rounded-lg hover:bg-[#ff814e]"
             >
-              <div className="bg-[#b7a2e6] text-[#232323] py-2 my-5 px-3 text-base font-semibold rounded-lg hover:bg-[#ff814e]"
-              >
               Leer nota
-              </div>
             </Link>
           </div>
 
@@ -271,11 +279,9 @@ const LandingPage: React.FC = () => {
             </p>
             <Link
               href="https://blog.monefin.net/prestamos-de-100-millones-a-pagar-en-60-cuotas-quienes-pueden-acceder-y-como-solicitarlo/"
+              className="inline-block bg-[#b7a2e6] text-[#232323] py-2 my-5 px-3 text-base font-semibold rounded-lg hover:bg-[#ff814e]"
             >
-              <div className="bg-[#b7a2e6] text-[#232323] py-2 my-5 px-3 text-base font-semibold rounded-lg hover:bg-[#ff814e]"
-              >
               Leer nota
-              </div>
             </Link>
           </div>
 
@@ -298,22 +304,20 @@ const LandingPage: React.FC = () => {
             </p>
             <Link
               href="https://blog.monefin.net/el-banco-ciudad-lanzo-prestamos-para-la-compra-de-autos-hechos-en-la-argentina/"
+              className="inline-block bg-[#b7a2e6] text-[#232323] py-2 my-5 px-3 text-base font-semibold rounded-lg hover:bg-[#ff814e]"
             >
-              <div className="bg-[#b7a2e6] text-[#232323] py-2 my-5 px-3 text-base font-semibold rounded-lg hover:bg-[#ff814e]"
-              >
               Leer nota
-              </div>
             </Link>
           </div>
         </div>
         <div className="pt-12 flex justify-center">
           <Link
             href="https://blog.monefin.net"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block bg-[#b7a2e6] text-[#232323] py-4 px-24 text-lg font-bold rounded-lg shadow-lg hover:bg-[#ff814e]"
           >
-            <div className="bg-[#b7a2e6] text-[#232323] py-4 px-24 text-lg font-bold rounded-lg shadow-lg hover:bg-[#ff814e]"
-            >
             Leer Más 📚
-            </div>
           </Link>
         </div>
       </div>

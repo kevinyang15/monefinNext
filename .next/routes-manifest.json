@@ -129,16 +129,16 @@
       "routeKeys": {
         "nxtPcode": "nxtPcode"
       },
-      "dataRouteRegex": "^/_next/data/8L4SM3Om1Yb0ArWMpCIUP/([^/]+?)/espera\\.json$",
-      "namedDataRouteRegex": "^/_next/data/8L4SM3Om1Yb0ArWMpCIUP/(?<nxtPcode>[^/]+?)/espera\\.json$"
+      "dataRouteRegex": "^/_next/data/3A7IhAjM97yA28\\-K1gMa6/([^/]+?)/espera\\.json$",
+      "namedDataRouteRegex": "^/_next/data/3A7IhAjM97yA28\\-K1gMa6/(?<nxtPcode>[^/]+?)/espera\\.json$"
     },
     {
       "page": "/[code]/ofertas",
       "routeKeys": {
         "nxtPcode": "nxtPcode"
       },
-      "dataRouteRegex": "^/_next/data/8L4SM3Om1Yb0ArWMpCIUP/([^/]+?)/ofertas\\.json$",
-      "namedDataRouteRegex": "^/_next/data/8L4SM3Om1Yb0ArWMpCIUP/(?<nxtPcode>[^/]+?)/ofertas\\.json$"
+      "dataRouteRegex": "^/_next/data/3A7IhAjM97yA28\\-K1gMa6/([^/]+?)/ofertas\\.json$",
+      "namedDataRouteRegex": "^/_next/data/3A7IhAjM97yA28\\-K1gMa6/(?<nxtPcode>[^/]+?)/ofertas\\.json$"
     }
   ],
   "rsc": {

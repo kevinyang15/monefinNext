@@ -1,1 +1,0 @@
-(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[154],{3744:(_,n,e)=>{(window.__NEXT_P=window.__NEXT_P||[]).push(["/ofertas",function(){return e(8217)}])}},_=>{_.O(0,[176,217,636,593,792],()=>_(_.s=3744)),_N_E=_.O()}]);

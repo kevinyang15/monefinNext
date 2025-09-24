@@ -74,19 +74,11 @@ const TopBar = () => {
             )}      
       </div>
       <div className='menuMobile'>
-        <Link href="/prestamos" passHref>
-          <CustomLink style={{ padding: '20px' }}>Buscar</CustomLink>
-        </Link>
-        <Link href="/nosotros" passHref>
-          <CustomLink style={{ padding: '20px' }}>¿Qué hacemos?</CustomLink>
-        </Link>
-        <Link href="/faq" passHref>
-          <CustomLink style={{ padding: '20px' }}>FAQ</CustomLink>
-        </Link>
-        <CustomLink href="https://blog.monefin.net" target="_blank" rel="noopener noreferrer" style={{ padding: '20px' }}>Blog</CustomLink>
-        <Link href="/contacto" passHref>
-          <CustomLink style={{ padding: '20px' }}>Contacto</CustomLink>
-        </Link>
+        <CustomLink href="/prestamos">Buscar</CustomLink>
+        <CustomLink href="/nosotros">¿Qué hacemos?</CustomLink>
+        <CustomLink href="/faq">FAQ</CustomLink>
+        <CustomLink href="https://blog.monefin.net" target="_blank" rel="noopener noreferrer">Blog</CustomLink>
+        <CustomLink href="/contacto">Contacto</CustomLink>
         {/* <Link href="/terminos" passHref>
           <CustomLink style={{ padding: '20px' }}>Términos</CustomLink>
         </Link> */}

@@ -1,6 +1,7 @@
 // src/components/Cards.tsx
 import React from 'react';
 import useFormStore from '../state/useFormStore';
+import Link from 'next/link';
 
 interface CardProps {
   id: number;
@@ -39,9 +40,13 @@ const Cards: React.FC<CardProps> = ({ name, imagen, titulo, subtitulo, texto, co
   // console.log('prueba-test', dni, name)
   
   return (
-    <a href={url} target="" rel="noopener noreferrer" onClick={handleCardClick} className="block border border-[#BDA1EC] rounded-2xl p-4 shadow-lg bg-white hover:shadow-xl transition-shadow duration-200 w-full mb-4">
-     <div className='flex justify-end sm:justify-start'>
-      {recomendado && <span className="bg-orange-500 text-white px-2 py-1 rounded-full text-xs">RECOMENDADO</span>}
+    <Link
+      href={url}
+      onClick={handleCardClick}
+      className="block border border-[#BDA1EC] rounded-2xl p-4 shadow-lg bg-white hover:shadow-xl transition-shadow duration-200 w-full mb-4"
+    >
+      <div className='flex justify-end sm:justify-start'>
+        {recomendado && <span className="bg-orange-500 text-white px-2 py-1 rounded-full text-xs">RECOMENDADO</span>}
       </div>
       <div className="flex items-center flex-col md:flex-row">
         <img src={imagen} alt="Imagen" className="w-28 h-28 rounded-lg" />
@@ -54,7 +59,7 @@ const Cards: React.FC<CardProps> = ({ name, imagen, titulo, subtitulo, texto, co
           <button className="mt-4 bg-purple-500 text-white py-2 px-4 rounded-lg">{button}</button>
         </div>
       </div>
-    </a>
+    </Link>
   );
 };
 
