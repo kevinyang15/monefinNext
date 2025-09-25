@@ -1,6 +1,18 @@
 {
-  "components/Landing/Landing.tsx -> lottie-react": {
-    "id": "components/Landing/Landing.tsx -> lottie-react",
+  "containers/UserForm.tsx -> lottie-react": {
+    "id": "containers/UserForm.tsx -> lottie-react",
+    "files": [
+      "static/chunks/_pages-dir-browser_node_modules_lottie-react_build_index_umd_js.js"
+    ]
+  },
+  "pages/espera.tsx -> lottie-react": {
+    "id": "pages/espera.tsx -> lottie-react",
+    "files": [
+      "static/chunks/_pages-dir-browser_node_modules_lottie-react_build_index_umd_js.js"
+    ]
+  },
+  "pages/prestamos.tsx -> lottie-react": {
+    "id": "pages/prestamos.tsx -> lottie-react",
     "files": [
       "static/chunks/_pages-dir-browser_node_modules_lottie-react_build_index_umd_js.js"
     ]

@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useMemo } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import styled from 'styled-components';
 import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
@@ -100,7 +100,10 @@ const Wait = () => {
   const [resending, setResending] = useState<boolean>(false);
   const [resendCount, setResendCount] = useState<number>(0);
   const [remaining, setRemaining] = useState<number>(0);
-  const canResend = useMemo(() => Date.now() >= resendAt, [resendAt]);
+  const [justUnlocked, setJustUnlocked] = useState<boolean>(false);
+  const isCooldownOver = remaining <= 0;
+  const canResend = isCooldownOver && resendCount < 2 && !resending;
+  const prevIsCooldownOver = useRef<boolean>(isCooldownOver);
   const nombrecompleto = useFormStore((state) => state.nombrecompleto);
 
   const goToRejected = () => {
@@ -143,7 +146,7 @@ const Wait = () => {
       } catch {}
 
       if (!needsConfirm) {
-        await sleep(5000);
+        await sleep(50000);
         setWaitOver(true);
       } else if (resendAt === 0) {
         // primer cooldown de 30s (email se envió automáticamente al iniciar el flujo)
@@ -156,17 +159,45 @@ const Wait = () => {
 
   // Countdown del cooldown del botón
   useEffect(() => {
+    const updateRemaining = () => {
+      const secs = Math.max(0, Math.ceil((resendAt - Date.now()) / 1000));
+      setRemaining(secs);
+    };
+
+    updateRemaining();
+
     if (resendAt <= Date.now()) {
       setRemaining(0);
       return;
     }
+
     const id = setInterval(() => {
-      const secs = Math.max(0, Math.ceil((resendAt - Date.now()) / 1000));
-      setRemaining(secs);
-      if (secs <= 0) clearInterval(id);
+      updateRemaining();
+      if (Date.now() >= resendAt) {
+        clearInterval(id);
+      }
     }, 250);
+
     return () => clearInterval(id);
   }, [resendAt]);
+
+  useEffect(() => {
+    const wasCooldownOver = prevIsCooldownOver.current;
+
+    if (!isCooldownOver) {
+      setJustUnlocked(false);
+    } else if (!wasCooldownOver && isCooldownOver && resendCount < 2) {
+      setJustUnlocked(true);
+    }
+
+    prevIsCooldownOver.current = isCooldownOver;
+  }, [isCooldownOver, resendCount]);
+
+  useEffect(() => {
+    if (!justUnlocked) return;
+    const timeout = setTimeout(() => setJustUnlocked(false), 1600);
+    return () => clearTimeout(timeout);
+  }, [justUnlocked]);
 
   useEffect(() => {
     if (waitOver) goToRejected();
@@ -265,17 +296,30 @@ const Wait = () => {
         <>
           <TitleText style={{ fontWeight:'700', textAlign:'center' }}>Confirmá tu email para continuar</TitleText>
           <Lottie animationData={EmailImg} height={150} width={150} style={{ width:'200px' }}/> 
-          <MainText>Te enviamos un correo con el enlace de confirmación.</MainText>
+          <MainText style={{ textAlign:'center' }}>Te enviamos un correo con el enlace de confirmación.</MainText>
           <button
             onClick={handleResend}
-            disabled={!canResend || resending || resendCount >= 2}
+            disabled={!canResend}
             className="px-4 py-2 rounded-md"
             style={{
-              background: (!canResend || resending || resendCount >= 2) ? '#d1c6f2' : '#BDA1EC',
-              color:'#232323', fontWeight:600, minWidth: 180
+              background: resendCount >= 2 ? '#f8d7da' : canResend ? '#8358E8' : '#d1c6f2',
+              color: resendCount >= 2 ? '#6b1d1d' : '#232323',
+              fontWeight: 600,
+              minWidth: 180,
+              cursor: canResend ? 'pointer' : 'not-allowed',
+              opacity: resending ? 0.85 : 1,
+              transform: justUnlocked ? 'scale(1.05)' : 'scale(1)',
+              boxShadow: justUnlocked ? '0 0 0 6px rgba(131, 88, 232, 0.35)' : 'none',
+              transition: 'transform 0.25s ease, box-shadow 0.35s ease, background 0.3s ease, opacity 0.2s ease'
             }}
             >
-            {resending ? 'Reenviando…' : (resendCount >= 2 ? 'Intentos agotados' : (canResend ? 'Reenviar email' : `Esperá ${remaining}s`))}
+            {resendCount >= 2
+              ? 'Intentos agotados'
+              : resending
+                ? 'Reenviando…'
+                : canResend
+                  ? 'Reenviar email'
+                  : `Esperá ${remaining}s`}
           </button>
           <Subtext style={{ textAlign:'center', fontSize:'12px' }}>
             {resendCount < 2
@@ -291,20 +335,6 @@ const Wait = () => {
           <Subtext>¡Estamos buscando las mejores ofertas! Faltan <strong>algunos segundos...</strong></Subtext>
         </>
       )}
-      <div>
-      <Item
-        icon={GreenCheck.src}
-        text="Validando tus datos"
-      />
-      <Item
-        icon={GreenCheck.src}
-        text="Analizando perfil crediticio"
-      />
-      <Item
-        icon={GreenCheck.src}
-        text="Buscando las mejores ofertas"
-      />
-      </div>
       <Spacer size={30} />
       {/* <Footer /> */}
     </Wrapper>
