@@ -146,8 +146,8 @@ const Wait = () => {
       } catch {}
 
       if (!needsConfirm) {
-        await sleep(50000);
-        setWaitOver(true);
+        await sleep(5000);
+        setWaitOver(true); 
       } else if (resendAt === 0) {
         // primer cooldown de 30s (email se envió automáticamente al iniciar el flujo)
         setResendAt(Date.now() + 30000);

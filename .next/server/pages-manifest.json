@@ -1,9 +1,1 @@
-{
-  "/_app": "pages/_app.js",
-  "/_error": "pages/_error.js",
-  "/_document": "pages/_document.js",
-  "/[code]/espera": "pages/[code]/espera.js",
-  "/": "pages/index.js",
-  "/prestamos": "pages/prestamos.js",
-  "/404": "pages/404.js"
-}
+{}
